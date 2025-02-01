@@ -12,11 +12,7 @@ vider:
   external:
     required:
       automation: false
-aws:
-  baseUrl: https://jss-vider-bucket.s3.ap-south-1.amazonaws.com
-  bucketName: jss-vider-bucket
-  accessKeyId: AKIAY7OTGWU7S3YKGCV4
-  secretKey: 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
+
 server:
   servlet:
     context-path: /
@@ -27,12 +23,10 @@ spring:
     primary:
       url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/camunda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       username: admin
-      password: viderBusiness!123
       driver-class-name: com.mysql.cj.jdbc.Driver
     secondary:
       url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/vider_preprod?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       username: admin
-      password: viderBusiness!123
       driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   pattern:
