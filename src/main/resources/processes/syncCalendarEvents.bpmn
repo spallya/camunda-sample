@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ljxko7" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="syncCalendarEvents" name="syncCalendarEvents" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" camunda:asyncAfter="true">
+      <bpmn:outgoing>Flow_0zlc2j0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_086bjyz" name="Loop Helper" camunda:delegateExpression="#{loopHelperDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="loopThrough">${loopThrough}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0so6t3y</bpmn:incoming>
+      <bpmn:incoming>Flow_1vaxb1i</bpmn:incoming>
+      <bpmn:incoming>Flow_02t127z</bpmn:incoming>
+      <bpmn:outgoing>Flow_0an6rew</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_19ncnby" name="End Loop?">
+      <bpmn:incoming>Flow_0an6rew</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dvae9g</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1f9ipch</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0dvae9g" name="Yes" sourceRef="Gateway_19ncnby" targetRef="Event_1cg3btd">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${endLoop == 'Y'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0an6rew" sourceRef="Activity_086bjyz" targetRef="Gateway_19ncnby" />
+    <bpmn:sequenceFlow id="Flow_0so6t3y" sourceRef="Activity_0ra819x" targetRef="Activity_086bjyz" />
+    <bpmn:sequenceFlow id="Flow_0p2zirn" sourceRef="Activity_1l07kxp" targetRef="Activity_0ra819x" />
+    <bpmn:sequenceFlow id="Flow_1f9ipch" name="No" sourceRef="Gateway_19ncnby" targetRef="Activity_0f41kb6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${endLoop == 'N'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0zlc2j0" sourceRef="StartEvent_1" targetRef="Activity_1l07kxp" />
+    <bpmn:serviceTask id="Activity_1l07kxp" name="Fetch Google Calendar Events" camunda:delegateExpression="#{fetchGoogleCalendarEvents}">
+      <bpmn:incoming>Flow_0zlc2j0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0p2zirn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0ra819x" name="Set loop through object" camunda:delegateExpression="#{setLoopThroughForCalendarEvents}">
+      <bpmn:incoming>Flow_0p2zirn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0so6t3y</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1dfcghj" name="Insert into event table" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">INSERT INTO `vider_test`.`event` ( `title`, `date`, `location`, `start_time`, `end_time`, `notes`, `user_id`, `organization_id`, `type`, `default_one`) VALUES ('${title}', '${date}', '${location}', '${startTime}', '${endTime}', '${notes}', '${dbUserId}', '${dbOrgId}', 'GOOGLE_EVENT', '0');</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">dbDynamicVariableResult</camunda:inputParameter>
+          <camunda:inputParameter name="upsert">Y</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1iigvyr</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vaxb1i</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1vaxb1i" sourceRef="Activity_1dfcghj" targetRef="Activity_086bjyz" />
+    <bpmn:endEvent id="Event_1cg3btd">
+      <bpmn:incoming>Flow_0dvae9g</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_0f41kb6" name="Fetch event from DB to check duplicate" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">select count(*) as numberOfRecords from vider_test.event where title = '${title}' and location =  '${location}' and start_time = '${startTime}'  and end_time = '${endTime}'  and user_id = '${dbUserId}' and organization_id = '${dbOrgId}';</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">duplicateEventDbResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1f9ipch</bpmn:incoming>
+      <bpmn:outgoing>Flow_14zhc73</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_14zhc73" sourceRef="Activity_0f41kb6" targetRef="Activity_0krt8hm" />
+    <bpmn:serviceTask id="Activity_0krt8hm" name="Check if event is already synced" camunda:delegateExpression="#{checkCalendarEventAlreadySynced}">
+      <bpmn:incoming>Flow_14zhc73</bpmn:incoming>
+      <bpmn:outgoing>Flow_0u31g84</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_1qhcx5h" name="Is event already synced?">
+      <bpmn:incoming>Flow_0u31g84</bpmn:incoming>
+      <bpmn:outgoing>Flow_1iigvyr</bpmn:outgoing>
+      <bpmn:outgoing>Flow_02t127z</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0u31g84" sourceRef="Activity_0krt8hm" targetRef="Gateway_1qhcx5h" />
+    <bpmn:sequenceFlow id="Flow_1iigvyr" name="No" sourceRef="Gateway_1qhcx5h" targetRef="Activity_1dfcghj">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${eventAlreadySynced == 'N'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_02t127z" name="Yes" sourceRef="Gateway_1qhcx5h" targetRef="Activity_086bjyz">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${eventAlreadySynced == 'Y'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="syncCalendarEvents">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="362" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v08275_di" bpmnElement="Activity_086bjyz">
+        <dc:Bounds x="580" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kut3r0_di" bpmnElement="Activity_1l07kxp">
+        <dc:Bounds x="270" y="340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0etgbcv_di" bpmnElement="Activity_0ra819x">
+        <dc:Bounds x="420" y="340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1cg3btd_di" bpmnElement="Event_1cg3btd">
+        <dc:Bounds x="1032" y="362" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_19ncnby_di" bpmnElement="Gateway_19ncnby" isMarkerVisible="true">
+        <dc:Bounds x="905" y="355" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="904" y="412" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0t3vxg4" bpmnElement="Activity_0f41kb6">
+        <dc:Bounds x="880" y="230" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vqcypy_di" bpmnElement="Activity_0krt8hm">
+        <dc:Bounds x="880" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1qhcx5h_di" bpmnElement="Gateway_1qhcx5h" isMarkerVisible="true">
+        <dc:Bounds x="755" y="115" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="741" y="77.5" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0es97k5_di" bpmnElement="Activity_1dfcghj">
+        <dc:Bounds x="580" y="100" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0zlc2j0_di" bpmnElement="Flow_0zlc2j0">
+        <di:waypoint x="215" y="380" />
+        <di:waypoint x="270" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0so6t3y_di" bpmnElement="Flow_0so6t3y">
+        <di:waypoint x="520" y="380" />
+        <di:waypoint x="580" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vaxb1i_di" bpmnElement="Flow_1vaxb1i">
+        <di:waypoint x="630" y="180" />
+        <di:waypoint x="630" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02t127z_di" bpmnElement="Flow_02t127z">
+        <di:waypoint x="780" y="165" />
+        <di:waypoint x="780" y="260" />
+        <di:waypoint x="630" y="260" />
+        <di:waypoint x="630" y="340" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="786" y="202" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0an6rew_di" bpmnElement="Flow_0an6rew">
+        <di:waypoint x="680" y="380" />
+        <di:waypoint x="905" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0p2zirn_di" bpmnElement="Flow_0p2zirn">
+        <di:waypoint x="370" y="380" />
+        <di:waypoint x="420" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dvae9g_di" bpmnElement="Flow_0dvae9g">
+        <di:waypoint x="955" y="380" />
+        <di:waypoint x="1032" y="380" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="984" y="362" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f9ipch_di" bpmnElement="Flow_1f9ipch">
+        <di:waypoint x="930" y="355" />
+        <di:waypoint x="930" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="942" y="326" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14zhc73_di" bpmnElement="Flow_14zhc73">
+        <di:waypoint x="930" y="230" />
+        <di:waypoint x="930" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0u31g84_di" bpmnElement="Flow_0u31g84">
+        <di:waypoint x="880" y="140" />
+        <di:waypoint x="805" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1iigvyr_di" bpmnElement="Flow_1iigvyr">
+        <di:waypoint x="755" y="140" />
+        <di:waypoint x="680" y="140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="711" y="122" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

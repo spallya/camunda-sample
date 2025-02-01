@@ -1,0 +1,441 @@
+{
+  "documentId": "1ZCqG8iX7m1XCKvh4aB9EJ06bGZkBHKhTAzasSbMxhHY",
+  "header": "",
+  "footer": "",
+  "sections": [
+    {
+      "metadataFields": [
+        {
+          "fieldName": "CAName",
+          "question": "Please enter name of the CA",
+          "fieldValue": null,
+          "placeHolder": "Eg: Chikyala Abhinav Kumar",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "TypeofCA",
+          "question": "Please enter type of the CA",
+          "fieldValue": null,
+          "placeHolder": "Eg: A.C.A",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "CAfirmtype",
+          "question": "Please enter firm type of the CA",
+          "fieldValue": null,
+          "placeHolder": "Eg: Proprietor",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "CAFirmName",
+          "question": "Please enter the firm name",
+          "fieldValue": null,
+          "placeHolder": "Eg: M/s ABHINAV CHIKYALA & Co.",
+          "type": "text_area"
+        },
+        {
+          "fieldName": "ApplicantAddress",
+          "question": "Please enter applicant address",
+          "fieldValue": null,
+          "placeHolder": "Eg: H.No. 7-4-86/2, Vidhya Nagar, Jagtial, Telangana - 505327",
+          "type": "text_area"
+        },
+        {
+          "fieldName": "relationtype",
+          "question": "Please enter type of relation to whom you are visiting",
+          "fieldValue": null,
+          "placeHolder": "Eg: Sister",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "CountryofVisit",
+          "question": "Please enter visiting country",
+          "fieldValue": null,
+          "placeHolder": "Eg: Canada",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "Visitcountrycurrency",
+          "question": "Please enter visiting country currency",
+          "fieldValue": null,
+          "placeHolder": "Eg: CAD",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "VisitcountrycurrencyRate",
+          "question": "Please enter visiting country currency rate",
+          "fieldValue": null,
+          "placeHolder": "Eg: 60.00",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "originCountryCurrency",
+          "question": "Please enter origin country currency",
+          "fieldValue": null,
+          "placeHolder": "Eg: INR",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "Date",
+          "question": "Please enter date",
+          "fieldValue": null,
+          "placeHolder": "Eg: 26-09-2023",
+          "type": "date"
+        },
+        {
+          "fieldName": "Place",
+          "question": "Please enter place",
+          "fieldValue": null,
+          "placeHolder": "Eg: Hyderabad",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "UDINNumber",
+          "question": "Please enter UDIN Number",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "totalOfOriginCountrySources",
+          "question": "INR Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "fieldNames": "originTotalOfSavingsFromIndia,originTotalOfMovableAssets,originTotalOfImmovableAssets"
+          }
+        },
+        {
+          "fieldName": "totalOfForeignCountrySources",
+          "question": "Foreign Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "fieldNames": "foreignTotalOfSavingsFromIndia,foreignTotalOfMovableAssets,foreignTotalOfImmovableAssets"
+          }
+        },
+        {
+          "fieldName": "originTotalOfSavingsFromIndia",
+          "question": "Origin Country Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "originCurrencyAmountSavingsFromIndiaParticular"
+          }
+        },
+        {
+          "fieldName": "foreignTotalOfSavingsFromIndia",
+          "question": "Foreign Country Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "foreignCurrencyAmountSavingsFromIndiaParticular"
+          }
+        },
+        {
+          "fieldName": "originTotalOfMovableAssets",
+          "question": "Origin Country Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "originCurrencyAmountMovableAssetsParticular"
+          }
+        },
+        {
+          "fieldName": "foreignTotalOfMovableAssets",
+          "question": "Foreign Country Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "foreignCurrencyAmountMovableAssetsParticular"
+          }
+        },
+        {
+          "fieldName": "originTotalOfImmovableAssets",
+          "question": "Foreign Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "originCurrencyAmountImmovableAssetsParticular"
+          }
+        },
+        {
+          "fieldName": "foreignTotalOfImmovableAssets",
+          "question": "Foreign Currency Total of source of funds",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "needToFetchTotalOfFields": true,
+            "indexedFieldNames": "foreignCurrencyAmountImmovableAssetsParticular"
+          }
+        }
+      ],
+      "sectionId": "visaReportDetails",
+      "status": ""
+    }
+  ],
+  "dynamicSections": [
+    {
+      "sectionId": "applicantDetailsDynamicSection",
+      "content": "{{ApplicantName}} (Applicant)",
+      "contentJoiner": "SINGLE_LINE",
+      "repeatOn": {
+        "fieldName": "numberOfApplicants",
+        "question": "Please Enter number of applicants for which you want to enter details",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "metadataFields": [
+        {
+          "fieldName": "ApplicantName",
+          "question": "Enter Applicant name",
+          "fieldValue": null,
+          "type": "text_box"
+        }
+      ]
+    },
+    {
+      "sectionId": "applicantNamesDynamicSection",
+      "content": "{{ApplicantName}}",
+      "contentJoiner": "SINGLE_LINE",
+      "repeatUsingLinkedDynamicSection": "applicantDetailsDynamicSection",
+      "metadataFields": [
+        {
+          "fieldName": "ApplicantName",
+          "question": "Enter Applicant name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        }
+      ]
+    },
+    {
+      "sectionId": "dynamicSavingsFromIndiaParticularsSection",
+      "content": "{{savingsFromIndiaParticular}} \n Amount in {{originCountryCurrency}} is {{originCurrencyAmountSavingsFromIndiaParticular}} \n Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountSavingsFromIndiaParticular}}",
+      "repeatOn": {
+        "fieldName": "numberOfParticularsSavingsFromIndia",
+        "question": "Please Enter number of particulars you want to provide for Savings from India section",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "spacingBetweenElements": 2,
+      "metadataFields": [
+        {
+          "fieldName": "savingsFromIndiaParticular",
+          "question": "Please enter the particular details",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "originCurrencyAmountSavingsFromIndiaParticular",
+          "question": "Please enter the amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "foreignCurrencyAmountSavingsFromIndiaParticular",
+          "question": "Amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "conversionRequired": true,
+            "indexCopyValueFrom": true,
+            "copyValueFrom": "originCurrencyAmountSavingsFromIndiaParticular",
+            "dynamicConversionRateFromMetaDataField": "VisitcountrycurrencyRate"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "dynamicMovableAssetsParticularsSection",
+      "content": "{{movableAssetsParticular}} \n Amount in {{originCountryCurrency}} is {{originCurrencyAmountMovableAssetsParticular}} \n Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountMovableAssetsParticular}}",
+      "repeatOn": {
+        "fieldName": "numberOfParticularsMovableAssets",
+        "question": "Please Enter number of particulars you want to provide for Movable Assets section",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "spacingBetweenElements": 2,
+      "metadataFields": [
+        {
+          "fieldName": "movableAssetsParticular",
+          "question": "Please enter the particular details",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "originCurrencyAmountMovableAssetsParticular",
+          "question": "Please enter the amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "foreignCurrencyAmountMovableAssetsParticular",
+          "question": "Amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "conversionRequired": true,
+            "indexCopyValueFrom": true,
+            "copyValueFrom": "originCurrencyAmountMovableAssetsParticular",
+            "dynamicConversionRateFromMetaDataField": "VisitcountrycurrencyRate"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "dynamicImmovableAssetsParticularsSection",
+      "content": "{{immovableAssetsParticular}} \n Amount in {{originCountryCurrency}} is {{originCurrencyAmountImmovableAssetsParticular}} \n Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountImmovableAssetsParticular}}",
+      "repeatOn": {
+        "fieldName": "numberOfParticularsImmovableAssetsParticular",
+        "question": "Please Enter number of particulars you want to provide for Immovable Assets section",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "spacingBetweenElements": 2,
+      "metadataFields": [
+        {
+          "fieldName": "immovableAssetsParticular",
+          "question": "Please enter the particular details",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "originCurrencyAmountImmovableAssetsParticular",
+          "question": "Please enter the amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "foreignCurrencyAmountImmovableAssetsParticular",
+          "question": "Amount in Origin country currency",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "conversionRequired": true,
+            "indexCopyValueFrom": true,
+            "copyValueFrom": "originCurrencyAmountImmovableAssetsParticular",
+            "dynamicConversionRateFromMetaDataField": "VisitcountrycurrencyRate"
+          }
+        }
+      ]
+    }
+  ],
+  "initialSequence": [
+    {
+      "fieldName": "CAName",
+      "sequence": 1
+    },
+    {
+      "fieldName": "TypeofCA",
+      "sequence": 2
+    },
+    {
+      "fieldName": "CAfirmtype",
+      "sequence": 3
+    },
+    {
+      "fieldName": "CAFirmName",
+      "sequence": 4
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "applicantDetailsDynamicSection",
+      "repeatOnFieldName": "numberOfApplicants",
+      "fields": [
+        "ApplicantName"
+      ],
+      "sequence": 5
+    },
+    {
+      "fieldName": "ApplicantAddress",
+      "sequence": 6
+    },
+    {
+      "fieldName": "relationtype",
+      "sequence": 7
+    },
+    {
+      "fieldName": "originCountryCurrency",
+      "sequence": 8
+    },
+    {
+      "fieldName": "CountryofVisit",
+      "sequence": 9
+    },
+    {
+      "fieldName": "Visitcountrycurrency",
+      "sequence": 10
+    },
+    {
+      "fieldName": "VisitcountrycurrencyRate",
+      "sequence": 11
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "dynamicSavingsFromIndiaParticularsSection",
+      "repeatOnFieldName": "numberOfParticularsSavingsFromIndia",
+      "fields": [
+        "savingsFromIndiaParticular",
+        "originCurrencyAmountSavingsFromIndiaParticular"
+      ],
+      "sequence": 12
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "dynamicMovableAssetsParticularsSection",
+      "repeatOnFieldName": "numberOfParticularsMovableAssets",
+      "fields": [
+        "movableAssetsParticular",
+        "originCurrencyAmountMovableAssetsParticular"
+      ],
+      "sequence": 13
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "dynamicImmovableAssetsParticularsSection",
+      "repeatOnFieldName": "numberOfParticularsImmovableAssetsParticular",
+      "fields": [
+        "immovableAssetsParticular",
+        "originCurrencyAmountImmovableAssetsParticular"
+      ],
+      "sequence": 14
+    },
+    {
+      "fieldName": "Date",
+      "sequence": 15
+    },
+    {
+      "fieldName": "Place",
+      "sequence": 16
+    },
+    {
+      "fieldName": "UDINNumber",
+      "sequence": 17
+    }
+  ]
+}

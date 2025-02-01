@@ -1,0 +1,19 @@
+vider:
+  atom:
+    schema: vider
+  external:
+    required:
+      automation: true
+
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/camunda_prod?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: admin
+      password: viderBusiness!123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/vider?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: admin
+      password: viderBusiness!123
+      driver-class-name: com.mysql.cj.jdbc.Driver

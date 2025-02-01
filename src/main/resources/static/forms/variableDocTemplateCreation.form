@@ -1,0 +1,261 @@
+{
+  "components": [
+    {
+      "text": "## Variable Doc Template Form",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1352y6h",
+        "columns": null
+      },
+      "id": "Field_1vsb6p6"
+    },
+    {
+      "label": "Template Id",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_19hntb1",
+        "columns": null
+      },
+      "id": "Field_0mq868w",
+      "key": "templateName",
+      "description": "Please provide an template id, e.g. sample-template"
+    },
+    {
+      "label": "Display Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_19hntb1",
+        "columns": null
+      },
+      "id": "Field_0tuqo3p",
+      "key": "displayName",
+      "description": "Please provide the display name"
+    },
+    {
+      "label": "Google Drive Link",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0s5ojiv",
+        "columns": null
+      },
+      "id": "Field_0k4awx2",
+      "key": "googleDriveLink",
+      "description": "Please provide google drive link of the document"
+    },
+    {
+      "values": [
+        {
+          "label": "Board and Director's Resolutions",
+          "value": "1"
+        }
+      ],
+      "label": "Template Category",
+      "type": "select",
+      "layout": {
+        "row": "Row_0s5ojiv",
+        "columns": null
+      },
+      "id": "Field_0c15ank",
+      "key": "templateCategory",
+      "defaultValue": "<none>",
+      "description": "Please select a category"
+    },
+    {
+      "label": "Labels",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1uuufdo",
+        "columns": null
+      },
+      "id": "Field_1r2zezc",
+      "key": "labels",
+      "description": "Please provide comma separated label values"
+    },
+    {
+      "label": "Google Doc Id",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1uuufdo",
+        "columns": null
+      },
+      "id": "Field_19x28rz",
+      "key": "googleDocId",
+      "description": "Please provide google doc id"
+    },
+    {
+      "label": "Description",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0wcltxs",
+        "columns": null
+      },
+      "id": "Field_0dg98vy",
+      "key": "description",
+      "description": "Please provide document descriptipn"
+    },
+    {
+      "label": "Excerpt",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0wcltxs",
+        "columns": null
+      },
+      "id": "Field_1r8wkkm",
+      "key": "excerpt",
+      "description": "Please provide excerpt"
+    },
+    {
+      "label": "Question1",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_05e74ux",
+        "columns": null
+      },
+      "id": "Field_07k4txa",
+      "key": "question1",
+      "description": "Please provide the question",
+      "appearance": {},
+      "properties": {
+        "key1": "value"
+      }
+    },
+    {
+      "label": "Question1 Field Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_05e74ux",
+        "columns": null
+      },
+      "id": "Field_04lq827",
+      "key": "fieldNameQuestion1",
+      "description": "Please provide field name tagged for question"
+    },
+    {
+      "label": "Question1 Default Value",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_03hdu56",
+        "columns": null
+      },
+      "id": "Field_18wmjpx",
+      "key": "defaultValueQuestion1",
+      "description": "Please provide default value"
+    },
+    {
+      "values": [
+        {
+          "label": "text_box",
+          "value": "text_box"
+        },
+        {
+          "label": "text_area",
+          "value": "text_area"
+        },
+        {
+          "label": "date",
+          "value": "date"
+        }
+      ],
+      "label": "Question1 Input Type",
+      "type": "select",
+      "layout": {
+        "row": "Row_03hdu56",
+        "columns": null
+      },
+      "id": "Field_0y1hyp6",
+      "key": "typeQuestion1",
+      "description": "Please select input type of question",
+      "defaultValue": "<none>"
+    },
+    {
+      "label": "Question2",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_08jgdcb",
+        "columns": null
+      },
+      "id": "Field_02ky0ar",
+      "key": "question2",
+      "description": "Please provide the question"
+    },
+    {
+      "label": "Question2 Field Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_08jgdcb",
+        "columns": null
+      },
+      "id": "Field_0iok7jp",
+      "key": "fieldNameQuestion2",
+      "description": "Please provide field name tagged for question"
+    },
+    {
+      "label": "Question2 Default Value",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_10jhlvn",
+        "columns": null
+      },
+      "id": "Field_0htzxhv",
+      "key": "defaultValueQuestion2",
+      "description": "Please provide default value"
+    },
+    {
+      "values": [
+        {
+          "label": "text_box",
+          "value": "text_boc"
+        },
+        {
+          "label": "text_area",
+          "value": "text_area"
+        },
+        {
+          "label": "date",
+          "value": "date"
+        }
+      ],
+      "label": "Question2 Input Type",
+      "type": "select",
+      "layout": {
+        "row": "Row_10jhlvn",
+        "columns": null
+      },
+      "id": "Field_0n9nsfa",
+      "key": "typeQuestion2",
+      "description": "Please select input type of question"
+    },
+    {
+      "action": "submit",
+      "label": "Submit",
+      "type": "button",
+      "layout": {
+        "row": "Row_0un13mb",
+        "columns": 8
+      },
+      "id": "Field_04nb866",
+      "key": "field_0llctqy"
+    },
+    {
+      "action": "reset",
+      "label": "Reset",
+      "type": "button",
+      "layout": {
+        "row": "Row_0un13mb",
+        "columns": 8
+      },
+      "id": "Field_1v6aqis",
+      "key": "field_0vmzeii"
+    }
+  ],
+  "type": "default",
+  "id": "variableTemplateForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.1"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

@@ -1,0 +1,104 @@
+{
+  "documentId": "1jDig06lHFvdmVvqu1OLKryy4OLRwLucIz8s5aLWrzZU",
+  "header": "",
+  "footer": "",
+  "sections": [
+    {
+      "metadataFields": [
+        {
+          "fieldName": "DateMonthYear",
+          "question": "What is the Date on which the Rental Agreement will be entered into?",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "date"
+        },
+        {
+          "fieldName": "Place",
+          "question": "What is the name of the city or town where the Rental agreement will be entered into?",
+          "fieldValue": null,
+          "placeHolder": "Eg: Hyderabad, Mumbai",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "LandlordName",
+          "question": "What is the name of the Landlord who is renting the property to the tenant ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: Sai Veer",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "LandlordAge",
+          "question": "What is the Age of the Landlord ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 25",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "LandlordAddress",
+          "question": "What is the Address of the Landlord who is renting the property to the tenant ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 123, Kukatpally, Hyderabad, 500089",
+          "type": "text_area"
+        },
+        {
+          "fieldName": "TenantName",
+          "question": "What is the name of the Tenant who is renting the property from the Landlord ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: Nikhil",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "Period",
+          "question": "What is the period for which the Rent will continue under this rental deed starting from the commencement date (in Months) ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 11",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "CommencementDate",
+          "question": "What is the Start Date for the Rental agreement",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "date"
+        },
+        {
+          "fieldName": "Amount",
+          "question": "What is the rent which is being paid to the Landlord by the tenant (in Rupees) ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 3,000",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "AmountinWords",
+          "question": "What is the rent which is being paid to the Landlord by the tenant (Rupees in Words) ?",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "Paymentbefore",
+          "question": "Before Which day of the month will the rent be paid ?",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "dropdown"
+        },
+        {
+          "fieldName": "RentedPremisesAddress",
+          "question": "What is the Address of the property being rented under this rental deed by the Landlord to the tenant ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 123, Kukatpally, Hyderabad, 500089",
+          "type": "text_area"
+        },
+        {
+          "fieldName": "NoticePeriod",
+          "question": "What is the notice period to be given by the Landlord or Tenant for termination of Rental Agreement (in Months) ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 3",
+          "type": "text_box"
+        }
+      ],
+      "sectionId": "rentDeedDetails",
+      "status": ""
+    }
+  ]
+}

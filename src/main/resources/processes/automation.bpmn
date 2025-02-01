@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0rk2dpz" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.15.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="automation" name="Automation" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1" camunda:asyncAfter="true">
+      <bpmn:outgoing>Flow_1s82jej</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1s82jej" sourceRef="StartEvent_1" targetRef="Activity_0352k5z" />
+    <bpmn:sequenceFlow id="Flow_160jgnf" sourceRef="Activity_0352k5z" targetRef="Activity_06bxtbi" />
+    <bpmn:sequenceFlow id="Flow_087vqg5" sourceRef="Activity_06bxtbi" targetRef="Activity_03dknk3" />
+    <bpmn:endEvent id="Event_08bucgu">
+      <bpmn:incoming>Flow_1x4d5ao</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1x4d5ao" sourceRef="Activity_03dknk3" targetRef="Event_08bucgu" />
+    <bpmn:serviceTask id="Activity_0352k5z" name="Trigger Automation" camunda:delegateExpression="#{triggerAutomation}">
+      <bpmn:incoming>Flow_1s82jej</bpmn:incoming>
+      <bpmn:outgoing>Flow_160jgnf</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_06bxtbi" name="Vider Webhook" camunda:delegateExpression="#{viderAutomationWebhook}">
+      <bpmn:incoming>Flow_160jgnf</bpmn:incoming>
+      <bpmn:outgoing>Flow_087vqg5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_03dknk3" name="Update Automation Status" camunda:delegateExpression="#{updateAutomationRequestStatus}">
+      <bpmn:incoming>Flow_087vqg5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1x4d5ao</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="automation">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08bucgu_di" bpmnElement="Event_08bucgu">
+        <dc:Bounds x="872" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xoogo4_di" bpmnElement="Activity_0352k5z">
+        <dc:Bounds x="300" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wv3axy_di" bpmnElement="Activity_06bxtbi">
+        <dc:Bounds x="490" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mt5w6o_di" bpmnElement="Activity_03dknk3">
+        <dc:Bounds x="670" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1s82jej_di" bpmnElement="Flow_1s82jej">
+        <di:waypoint x="215" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x4d5ao_di" bpmnElement="Flow_1x4d5ao">
+        <di:waypoint x="770" y="120" />
+        <di:waypoint x="872" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_160jgnf_di" bpmnElement="Flow_160jgnf">
+        <di:waypoint x="400" y="120" />
+        <di:waypoint x="490" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_087vqg5_di" bpmnElement="Flow_087vqg5">
+        <di:waypoint x="590" y="120" />
+        <di:waypoint x="670" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

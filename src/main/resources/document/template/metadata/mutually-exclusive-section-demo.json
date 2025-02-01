@@ -1,0 +1,289 @@
+{
+  "documentId": "1Qv4bysNFHHU38-zKDiExv2FICy7effuTZw33qOZn1ec",
+  "sections": [
+    {
+      "sectionId": "staticFieldsSection",
+      "metadataFields": [
+        {
+          "fieldName": "MyStaticField",
+          "question": "Enter value",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "footer",
+          "question": "Enter value",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "header",
+          "question": "Enter value",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        }
+      ]
+    }
+  ],
+  "mutuallyExclusiveSections": {
+    "selector": {
+      "fieldName": "selectSectionToChoose",
+      "question": "Please select which section you want to choose",
+      "fieldValue": "",
+      "type": "dropdown"
+    },
+    "elements": [
+      {
+        "sectionId": "mutuallyExclusiveSectionsDemoSection1",
+        "content": "My Name is {{FirstName1}} {{LastName1}} for Section 1",
+        "activeOnSelectorValue": "1",
+        "metadataFields": [
+          {
+            "fieldName": "FirstName1",
+            "question": "Enter First name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "LastName1",
+            "question": "Enter Last name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "mutuallyExclusiveSectionsDemoSection2",
+        "content": "My Name is {{FirstName2}} {{LastName2}} for Section 2",
+        "activeOnSelectorValue": "2",
+        "metadataFields": [
+          {
+            "fieldName": "FirstName2",
+            "question": "Enter First name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "LastName2",
+            "question": "Enter Last name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "mutuallyExclusiveSectionsDemoSection3",
+        "content": "My Name is {{FirstName3}} {{LastName3}} for Section 3",
+        "activeOnSelectorValue": "3",
+        "metadataFields": [
+          {
+            "fieldName": "FirstName3",
+            "question": "Enter First name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "LastName3",
+            "question": "Enter Last name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      }
+    ]
+  },
+  "dynamicSections": [
+    {
+      "sectionId": "nestedDynamicSection",
+      "contentMapper": {
+        "content1": {
+          "index": 1,
+          "content": "My Name is {{name}}"
+        },
+        "content2": {
+          "index": 2,
+          "content": "My Gender is {{gender}}"
+        },
+        "content3": {
+          "index": 3,
+          "content": "If my Gender is female, then only you will this question to enter my Age {{age}}",
+          "condition": "gender:female"
+        },
+        "content4": {
+          "index": 4,
+          "content": "Also if my Age is 10, then only you will see this line",
+          "condition": "gender:female|age:10"
+        },
+        "content5": {
+          "index": 5,
+          "content": "I will be only visible if Gender is selected as Male",
+          "condition": "gender:male"
+        }
+      },
+      "repeatOn": {
+        "fieldName": "numberOfEmployees",
+        "question": "Enter number of employees for which you want to enter details",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "metadataFields": [
+        {
+          "fieldName": "name",
+          "question": "Enter name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "gender",
+          "question": "Enter gender",
+          "fieldValue": null,
+          "drivesConditionalContent": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "age",
+          "question": "Enter age",
+          "drivesConditionalContent": true,
+          "fieldValue": null,
+          "type": "text_box"
+        }
+      ]
+    }
+  ],
+  "tabularSections": [
+    {
+      "sectionId": "testTable1",
+      "repeatOn": {
+        "fieldName": "numberOfStudents",
+        "question": "Enter number of students for whom you want to enter details",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "columns": [
+        {
+          "header": "Student Name",
+          "value": "studentName",
+          "index": 1
+        },
+        {
+          "header": "Student Gender",
+          "value": "studentGender",
+          "index": 2
+        },
+        {
+          "header": "Student Age",
+          "value": "studentAge",
+          "index": 3
+        },
+        {
+          "header": "S. No.",
+          "value": "CurrentIndex",
+          "index": 4
+        },
+        {
+          "header": "S. No. (in words)",
+          "value": "CurrentIndexInWords",
+          "index": 5
+        },
+        {
+          "header": "Current Index Percentage",
+          "value": "CurrentIndexPercentage",
+          "index": 6
+        }
+      ],
+      "metadataFields": [
+        {
+          "fieldName": "studentName",
+          "question": "Enter student name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "studentGender",
+          "question": "Enter student gender",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "studentAge",
+          "question": "Enter student age",
+          "fieldValue": null,
+          "type": "text_box"
+        }
+      ]
+    }
+  ],
+  "initialSequence": [
+    {
+      "fieldName": "selectSectionToChoose",
+      "mutuallyExclusiveSelectorField": true,
+      "sequence": 1
+    },
+    {
+      "fieldName": "FirstName1",
+      "sequence": 2
+    },
+    {
+      "fieldName": "LastName1",
+      "sequence": 3
+    },
+    {
+      "fieldName": "FirstName2",
+      "sequence": 4
+    },
+    {
+      "fieldName": "LastName2",
+      "sequence": 5
+    },
+    {
+      "fieldName": "FirstName3",
+      "sequence": 6
+    },
+    {
+      "fieldName": "LastName3",
+      "sequence": 7
+    },
+    {
+      "fieldName": "MyStaticField",
+      "sequence": 8
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "nestedDynamicSection",
+      "repeatOnFieldName": "numberOfStudents",
+      "fieldsWithMetadata": [
+        {
+          "fieldName": "name"
+        },
+        {
+          "fieldName": "gender"
+        },
+        {
+          "fieldName": "age",
+          "condition": "gender:female"
+        }
+      ],
+      "sequence": 9
+    },
+    {
+      "tabularSectionFields": true,
+      "tabularSectionId": "testTable1",
+      "repeatOnFieldName": "numberOfStudents",
+      "fields": [
+        "studentName",
+        "studentGender",
+        "studentAge"
+      ],
+      "sequence": 10
+    }
+  ]
+}

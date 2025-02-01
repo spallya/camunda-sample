@@ -1,0 +1,6 @@
+vider:
+  atom:
+    schema: vider_preprod
+  external:
+    required:
+      automation: true

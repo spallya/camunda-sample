@@ -1,0 +1,40 @@
+#camunda.bpm.admin-user:
+#  id: admin
+#  password: admin
+camunda:
+  bpm:
+    generic-properties:
+      properties:
+        historyTimeToLive: P36500D
+vider:
+  atom:
+    schema: vider_preprod
+  external:
+    required:
+      automation: false
+aws:
+  baseUrl: https://jss-vider-bucket.s3.ap-south-1.amazonaws.com
+  bucketName: jss-vider-bucket
+  accessKeyId: AKIAY7OTGWU7S3YKGCV4
+  secretKey: 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
+server:
+  servlet:
+    context-path: /
+spring.main.allow-bean-definition-overriding: true
+
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/camunda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: admin
+      password: viderBusiness!123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      url: jdbc:mysql://vider-db.ctnm6mdla58b.ap-south-1.rds.amazonaws.com:3306/vider_preprod?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: admin
+      password: viderBusiness!123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  pattern:
+    console: '{"t": "%d{yyyy-MM-ddTHH:mm:ss.SSSZ}", "CorrelationId": "%X{CorrelationId}", "Module": "%logger{35}", "Message": "%msg", "level": "%-5level"} %n'
+

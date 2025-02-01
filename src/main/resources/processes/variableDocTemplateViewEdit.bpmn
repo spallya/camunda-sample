@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_13qbc9s" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="variableDocTemplateViewEdit" name="Variable Doc Template (View/Edit)" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1nv6tmq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0li0bxt">
+      <bpmn:incoming>Flow_0fb6gw7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Activity_07skzsv" name="View/Edit variable doc template - [${templateName}]" camunda:formRef="variableTemplateForm" camunda:formRefBinding="deployment" camunda:assignee="admin">
+      <bpmn:incoming>Flow_0eazt22</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fmb440</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_1207ncw" name="Format Data" camunda:delegateExpression="#{formatDataForVariableTemplate}">
+      <bpmn:incoming>Flow_0fmb440</bpmn:incoming>
+      <bpmn:outgoing>Flow_163kbmj</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1dfcghj" name="Insert into template table" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">insert into `vider_test`.`qtm_template` (`name`, `template_category_id`, `labels`, `metadata`, `description`, `template_name`, `updated_by`, `google_drivelink`, `version`, `last_updated`, `excerpt`, `saved`) values ('${name}', ${templateCategoryId}, '${labelsJson}', '${metadataJson}', '${description}', '${templateId}', 'admin', '${googleDriveLink}', 1, current_timestamp(), '${excerpt}', 0);</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">variableTemplateInsertResult</camunda:inputParameter>
+          <camunda:inputParameter name="upsert">Y</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_08sdgkd</bpmn:incoming>
+      <bpmn:outgoing>Flow_0fb6gw7</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1nv6tmq" sourceRef="StartEvent_1" targetRef="Activity_1sb6diy" />
+    <bpmn:sequenceFlow id="Flow_0fb6gw7" sourceRef="Activity_1dfcghj" targetRef="Event_0li0bxt" />
+    <bpmn:sequenceFlow id="Flow_0fmb440" sourceRef="Activity_07skzsv" targetRef="Activity_1207ncw" />
+    <bpmn:sequenceFlow id="Flow_163kbmj" sourceRef="Activity_1207ncw" targetRef="Activity_0959d1a" />
+    <bpmn:sequenceFlow id="Flow_0eazt22" sourceRef="Activity_1ms4huj" targetRef="Activity_07skzsv" />
+    <bpmn:serviceTask id="Activity_1ms4huj" name="Load Template variables for view/edit" camunda:delegateExpression="#{variableDocTemplateViewEditData}">
+      <bpmn:incoming>Flow_0uiu5un</bpmn:incoming>
+      <bpmn:outgoing>Flow_0eazt22</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1sb6diy" name="Fetch doc metadata from template table using business key" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">select name, template_category_id, labels, metadata, description, template_name, google_drivelink, excerpt from vider_test.qtm_template where template_name = '{camundaBusinessKey}';</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">templateDbResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1nv6tmq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0uiu5un</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0uiu5un" sourceRef="Activity_1sb6diy" targetRef="Activity_1ms4huj" />
+    <bpmn:serviceTask id="Activity_0959d1a" name="Delete from template table" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">delete from vider_test.qtm_template where template_name = '${templateId}';</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">variableTemplateDeleteResult</camunda:inputParameter>
+          <camunda:inputParameter name="upsert">Y</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_163kbmj</bpmn:incoming>
+      <bpmn:outgoing>Flow_08sdgkd</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_08sdgkd" sourceRef="Activity_0959d1a" targetRef="Activity_1dfcghj" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="variableDocTemplateViewEdit">
+      <bpmndi:BPMNShape id="BPMNShape_0gic62q" bpmnElement="StartEvent_1">
+        <dc:Bounds x="158" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0r8dluz" bpmnElement="Activity_1sb6diy">
+        <dc:Bounds x="238" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0li0bxt_di" bpmnElement="Event_0li0bxt">
+        <dc:Bounds x="1132" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1kq8dww_di" bpmnElement="Activity_1ms4huj">
+        <dc:Bounds x="383" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1athkqx_di" bpmnElement="Activity_07skzsv">
+        <dc:Bounds x="528" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09ej1d9_di" bpmnElement="Activity_1207ncw">
+        <dc:Bounds x="679" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ltnn7o" bpmnElement="Activity_0959d1a">
+        <dc:Bounds x="831" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0es97k5_di" bpmnElement="Activity_1dfcghj">
+        <dc:Bounds x="981" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1nv6tmq_di" bpmnElement="Flow_1nv6tmq">
+        <di:waypoint x="194" y="120" />
+        <di:waypoint x="238" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fb6gw7_di" bpmnElement="Flow_0fb6gw7">
+        <di:waypoint x="1081" y="120" />
+        <di:waypoint x="1132" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fmb440_di" bpmnElement="Flow_0fmb440">
+        <di:waypoint x="628" y="120" />
+        <di:waypoint x="679" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_163kbmj_di" bpmnElement="Flow_163kbmj">
+        <di:waypoint x="779" y="120" />
+        <di:waypoint x="831" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0eazt22_di" bpmnElement="Flow_0eazt22">
+        <di:waypoint x="483" y="120" />
+        <di:waypoint x="528" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uiu5un_di" bpmnElement="Flow_0uiu5un">
+        <di:waypoint x="338" y="120" />
+        <di:waypoint x="383" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08sdgkd_di" bpmnElement="Flow_08sdgkd">
+        <di:waypoint x="931" y="120" />
+        <di:waypoint x="981" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

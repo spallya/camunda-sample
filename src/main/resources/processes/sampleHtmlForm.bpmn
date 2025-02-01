@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1k8fu8e" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="sampleHtmlForm" name="sampleHtmlForm" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_18qtyqh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_07k11yi">
+      <bpmn:incoming>Flow_1mle7ap</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_18qtyqh" sourceRef="StartEvent_1" targetRef="Activity_1na1m2y" />
+    <bpmn:sequenceFlow id="Flow_1mle7ap" sourceRef="Activity_1na1m2y" targetRef="Event_07k11yi" />
+    <bpmn:userTask id="Activity_1na1m2y" name="Sample HTML form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="firstName" label="First Name" type="string" defaultValue="Please enter first name" />
+          <camunda:formField id="company" label="Company" type="enum">
+            <camunda:value id="vider" name="Vider Solutions" />
+            <camunda:value id="wellsFargo" name="Wells Fargo Solutions" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18qtyqh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1mle7ap</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sampleHtmlForm">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07k11yi_di" bpmnElement="Event_07k11yi">
+        <dc:Bounds x="512" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1e0t8r9_di" bpmnElement="Activity_1na1m2y">
+        <dc:Bounds x="300" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_18qtyqh_di" bpmnElement="Flow_18qtyqh">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mle7ap_di" bpmnElement="Flow_1mle7ap">
+        <di:waypoint x="400" y="120" />
+        <di:waypoint x="512" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

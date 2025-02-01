@@ -1,0 +1,2078 @@
+{
+	"info": {
+		"_postman_id": "06726c48-38cd-4aad-a03e-b73954335399",
+		"name": "Vider Quantum Engine APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3374037"
+	},
+	"item": [
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Add a new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"spallyatest12331\",\n    \"firstName\": \"Spallya\",\n    \"lastName\": \"Omar\",\n    \"email\": \"spallya@outlook.com\",\n    \"imageUrl\": \"my-avatar-url\",\n    \"roles\": \"xyz\",\n    \"groups\": [\n        \"243423\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Spallya\",\n    \"lastName\": \"Omar\",\n    \"email\": \"spallya@outlook.com\",\n    \"imageUrl\": \"mynew-avatar-url\",\n    \"groups\": [\n        \"243423\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users/spallyatest123",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users",
+								"spallyatest123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Groups of Users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"spallya\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/groups/sampleGroup4/sampleGroup5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"groups",
+								"sampleGroup4",
+								"sampleGroup5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Membership",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users/spallya1/groups/sampleGroup2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users",
+								"spallya1",
+								"groups",
+								"sampleGroup2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users of a Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/groups/243423/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"groups",
+								"243423",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/groups/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"groups",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Groups of a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users/spallya/groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users",
+								"spallya",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users/spallya",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users",
+								"spallya"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Membership",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/users/spallya/groups/sampleGroup2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"users",
+								"spallya",
+								"groups",
+								"sampleGroup2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/groups/someGroup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"groups",
+								"someGroup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Complete User Task",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskId\": \"da0614be-3081-11ee-b352-86379344937f\",\n    \"comments\": \"Task Completed!!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Task",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processInstanceId\": \"6404260b-264b-11ee-8647-ae967df46419\",\n    \"taskId\": \"673038be-264b-11ee-8647-ae967df46419\",\n    \"description\": \"Dummy Task\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Task to User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processInstanceId\": \"6404260b-264b-11ee-8647-ae967df46419\",\n    \"taskId\": \"673038be-264b-11ee-8647-ae967df46419\",\n    \"description\": \"Dummy Task\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/da05edac-3081-11ee-b352-86379344937f/assign/spallya",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"da05edac-3081-11ee-b352-86379344937f",
+								"assign",
+								"spallya"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks for an user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/spallya",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"spallya"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variable Document",
+			"item": [
+				{
+					"name": "Create Sample Variable Document Process",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the processInstanceId in an environment or global variable",
+									"var processInstanceId = pm.response.json().processInstanceId;",
+									"pm.environment.set(\"processInstanceId\", processInstanceId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"sampleGoogleDocFromTemplate\",\n    \"metaData\": {\n        \"templateName\": \"mutually-exclusive-section-demo\",\n        \"approvalProcessId\": \"Level2ApprovalProcess\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Signed document",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the processInstanceId in an environment or global variable",
+									"var processInstanceId = pm.response.json().processInstanceId;",
+									"pm.environment.set(\"processInstanceId\", processInstanceId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/spallyaomar/Downloads/Dynamically Generated Visa Report Document.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/upload",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Process Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/{{processInstanceId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"{{processInstanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Variable Document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/export/pdf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"export",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Varaibe Document in DOCX Format",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/download/docx",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"download",
+								"docx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Variable Document Variables Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sections\": [\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"MyStaticField\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter value\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": [],\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"footer\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter value\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": [],\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"header\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter value\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": [],\n                    \"autoFillValue\": null\n                }\n            ],\n            \"sectionId\": \"staticFieldsSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"name1\",\n                    \"fieldValue\": \"Spallya\",\n                    \"question\": \"Enter name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"gender1\",\n                    \"fieldValue\": \"male\",\n                    \"question\": \"Enter gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"age1\",\n                    \"fieldValue\": \"12\",\n                    \"question\": \"Enter age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"name2\",\n                    \"fieldValue\": \"Akshita\",\n                    \"question\": \"Enter name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"gender2\",\n                    \"fieldValue\": \"female\",\n                    \"question\": \"Enter gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"age2\",\n                    \"fieldValue\": \"10\",\n                    \"question\": \"Enter age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"sectionId\": \"nestedDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"studentName1\",\n                    \"fieldValue\": \"Spallya Omar\",\n                    \"question\": \"Enter student name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentGender1\",\n                    \"fieldValue\": \"Male\",\n                    \"question\": \"Enter student gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentAge1\",\n                    \"fieldValue\": \"30\",\n                    \"question\": \"Enter student age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentName2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentGender2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentAge2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentName3\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentGender3\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentAge3\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentName4\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentGender4\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentAge4\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"sectionId\": \"testTable1\",\n            \"status\": null\n        }\n    ],\n    \"dynamicSections\": [\n        {\n            \"sectionId\": \"nestedDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"name\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"gender\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"age\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"content\": null,\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfEmployees\",\n                \"fieldValue\": \"2\",\n                \"question\": \"Enter number of employees for which you want to enter details\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"contentMapper\": {\n                \"content1\": {\n                    \"content\": \"My Name is {{name}}\",\n                    \"condition\": null,\n                    \"index\": 1\n                },\n                \"content2\": {\n                    \"content\": \"My Gender is {{gender}}\",\n                    \"condition\": null,\n                    \"index\": 2\n                },\n                \"content3\": {\n                    \"content\": \"If my Gender is female, then only you will this question to enter my Age {{age}}\",\n                    \"condition\": \"gender:female\",\n                    \"index\": 3\n                },\n                \"content4\": {\n                    \"content\": \"Also if my Age is 10, then only you will see this line\",\n                    \"condition\": \"gender:female|age:10\",\n                    \"index\": 4\n                },\n                \"content5\": {\n                    \"content\": \"I will be only visible if Gender is selected as Male\",\n                    \"condition\": \"gender:male\",\n                    \"index\": 5\n                }\n            },\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        }\n    ],\n    \"tabularSections\": [\n        {\n            \"sectionId\": \"testTable1\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"studentName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentGender\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student gender\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"studentAge\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter student age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfStudents\",\n                \"fieldValue\": \"4\",\n                \"question\": \"Enter number of students for whom you want to enter details\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"columns\": [\n                {\n                    \"header\": \"Student Name\",\n                    \"index\": 1,\n                    \"value\": \"studentName\"\n                },\n                {\n                    \"header\": \"Student Gender\",\n                    \"index\": 2,\n                    \"value\": \"studentGender\"\n                },\n                {\n                    \"header\": \"Student Age\",\n                    \"index\": 3,\n                    \"value\": \"studentAge\"\n                }\n            ]\n        }\n    ],\n    \"mutuallyExclusiveSections\": {\n        \"selector\": {\n            \"fieldName\": \"selectSectionToChoose\",\n            \"fieldValue\": \"\",\n            \"question\": \"Please select which section you want to choose\",\n            \"type\": \"dropdown\",\n            \"placeHolder\": null,\n            \"id\": null,\n            \"hideInUi\": false,\n            \"options\": null,\n            \"autoFillValue\": null\n        },\n        \"elements\": [\n            {\n                \"sectionId\": \"mutuallyExclusiveSectionsDemoSection1\",\n                \"metadataFields\": [\n                    {\n                        \"fieldName\": \"FirstName1\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter First name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    },\n                    {\n                        \"fieldName\": \"LastName1\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter Last name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    }\n                ],\n                \"content\": \"My Name is {{FirstName1}} {{LastName1}} for Section 1\",\n                \"activeOnSelectorValue\": \"1\"\n            },\n            {\n                \"sectionId\": \"mutuallyExclusiveSectionsDemoSection2\",\n                \"metadataFields\": [\n                    {\n                        \"fieldName\": \"FirstName2\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter First name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    },\n                    {\n                        \"fieldName\": \"LastName2\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter Last name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    }\n                ],\n                \"content\": \"My Name is {{FirstName2}} {{LastName2}} for Section 2\",\n                \"activeOnSelectorValue\": \"2\"\n            },\n            {\n                \"sectionId\": \"mutuallyExclusiveSectionsDemoSection3\",\n                \"metadataFields\": [\n                    {\n                        \"fieldName\": \"FirstName3\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter First name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    },\n                    {\n                        \"fieldName\": \"LastName3\",\n                        \"fieldValue\": null,\n                        \"question\": \"Enter Last name\",\n                        \"type\": \"text_box\",\n                        \"placeHolder\": null,\n                        \"id\": null,\n                        \"hideInUi\": true,\n                        \"options\": null,\n                        \"autoFillValue\": null\n                    }\n                ],\n                \"content\": \"My Name is {{FirstName3}} {{LastName3}} for Section 3\",\n                \"activeOnSelectorValue\": \"3\"\n            }\n        ]\n    },\n    \"header\": null,\n    \"footer\": null\n}"
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/variables",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variable Document - Visa Report",
+			"item": [
+				{
+					"name": "Create Sample Variable Document Process",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the processInstanceId in an environment or global variable",
+									"var processInstanceId = pm.response.json().processInstanceId;",
+									"pm.environment.set(\"processInstanceId\", processInstanceId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"variableDocGenerator\",\n    \"metaData\": {\n        \"templateName\": \"visa-report\",\n        \"approvalProcessId\": \"Level2ApprovalProcess\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Process Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/{{processInstanceId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"{{processInstanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Variable Document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/export/pdf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"export",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Variable Document with header and footer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/export/org/368",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"export",
+								"org",
+								"368"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Varaibe Document in DOCX Format",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/download/docx",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"download",
+								"docx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Variable Document Variables Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sections\": [\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"CAName\",\n                    \"fieldValue\": \"Chikyala Abhinav Kumar\",\n                    \"question\": \"Please enter name of the CA\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Chikyala Abhinav Kumar\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"TypeofCA\",\n                    \"fieldValue\": \"A.C.A\",\n                    \"question\": \"Please enter type of the CA\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: A.C.A\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"CAfirmtype\",\n                    \"fieldValue\": \"Proprietor\",\n                    \"question\": \"Please enter firm type of the CA\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Proprietor\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"CAFirmName\",\n                    \"fieldValue\": \"M/s ABHINAV CHIKYALA & Co.\",\n                    \"question\": \"Please enter the firm name\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": \"Eg: M/s ABHINAV CHIKYALA & Co.\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"ApplicantAddress\",\n                    \"fieldValue\": \"H.No. 7-4-86/2, Vidhya Nagar, Jagtial, Telangana - 505327\",\n                    \"question\": \"Please enter applicant address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": \"Eg: H.No. 7-4-86/2, Vidhya Nagar, Jagtial, Telangana - 505327\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"relationtype\",\n                    \"fieldValue\": \"Daughter\",\n                    \"question\": \"Please enter type of relation to whom you are visiting\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Sister\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"CountryofVisit\",\n                    \"fieldValue\": \"U.S.A\",\n                    \"question\": \"Please enter visiting country\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Canada\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"Visitcountrycurrency\",\n                    \"fieldValue\": \"USD\",\n                    \"question\": \"Please enter visiting country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: CAD\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"VisitcountrycurrencyRate\",\n                    \"fieldValue\": \"83.08\",\n                    \"question\": \"Please enter visiting country currency rate\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: 60.00\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCountryCurrency\",\n                    \"fieldValue\": \"INR\",\n                    \"question\": \"Please enter origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: INR\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"Date\",\n                    \"fieldValue\": \"01-10-2023\",\n                    \"question\": \"Please enter date\",\n                    \"type\": \"date\",\n                    \"placeHolder\": \"Eg: 26-09-2023\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"Place\",\n                    \"fieldValue\": \"Hyderabad\",\n                    \"question\": \"Please enter place\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Hyderabad\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"UDINNumber\",\n                    \"fieldValue\": \"123456789\",\n                    \"question\": \"Please enter UDIN Number\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"\",\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"totalOfOriginCountrySources\",\n                    \"fieldValue\": null,\n                    \"question\": \"INR Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": \"originTotalOfSavingsFromIndia,originTotalOfMovableAssets,originTotalOfImmovableAssets\",\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"totalOfForeignCountrySources\",\n                    \"fieldValue\": null,\n                    \"question\": \"Foreign Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": \"foreignTotalOfSavingsFromIndia,foreignTotalOfMovableAssets,foreignTotalOfImmovableAssets\",\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"originTotalOfSavingsFromIndia\",\n                    \"fieldValue\": null,\n                    \"question\": \"Origin Country Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"originCurrencyAmountSavingsFromIndiaParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"foreignTotalOfSavingsFromIndia\",\n                    \"fieldValue\": null,\n                    \"question\": \"Foreign Country Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"foreignCurrencyAmountSavingsFromIndiaParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"originTotalOfMovableAssets\",\n                    \"fieldValue\": null,\n                    \"question\": \"Origin Country Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"originCurrencyAmountMovableAssetsParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"foreignTotalOfMovableAssets\",\n                    \"fieldValue\": null,\n                    \"question\": \"Foreign Country Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"foreignCurrencyAmountMovableAssetsParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"originTotalOfImmovableAssets\",\n                    \"fieldValue\": null,\n                    \"question\": \"Foreign Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"originCurrencyAmountImmovableAssetsParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                },\n                {\n                    \"fieldName\": \"foreignTotalOfImmovableAssets\",\n                    \"fieldValue\": null,\n                    \"question\": \"Foreign Currency Total of source of funds\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": true,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": \"foreignCurrencyAmountImmovableAssetsParticular\",\n                        \"conversionRequired\": false,\n                        \"indexCopyValueFrom\": false,\n                        \"copyValueFrom\": null,\n                        \"copyValueFromIndexed\": null,\n                        \"dynamicConversionRateFromMetaDataField\": null\n                    }\n                }\n            ],\n            \"sectionId\": \"visaReportDetails\",\n            \"status\": \"\"\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ApplicantName1\",\n                    \"fieldValue\": \"Mr. Spallya Omar\",\n                    \"question\": \"Enter Applicant name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"ApplicantName2\",\n                    \"fieldValue\": \"Mr. Sai Veer\",\n                    \"question\": \"Enter Applicant name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"sectionId\": \"applicantDetailsDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [],\n            \"sectionId\": \"applicantNamesDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"savingsFromIndiaParticular1\",\n                    \"fieldValue\": \"Balance Lying to the credit of Spallya Omar and Sai Veer (Applicant) in Savings Bank Account No. XXXXXXXX0253 with HDFC Bank as per Bank Statement.\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountSavingsFromIndiaParticular1\",\n                    \"fieldValue\": \"11000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountSavingsFromIndiaParticular1\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountSavingsFromIndiaParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountSavingsFromIndiaParticular1\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                },\n                {\n                    \"fieldName\": \"savingsFromIndiaParticular2\",\n                    \"fieldValue\": \"Total Income Declared in Latest Income Tax Filing for AY 2023-24 of Spallya Omar (Applicant)\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountSavingsFromIndiaParticular2\",\n                    \"fieldValue\": \"2000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountSavingsFromIndiaParticular2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountSavingsFromIndiaParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountSavingsFromIndiaParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"sectionId\": \"dynamicSavingsFromIndiaParticularsSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"movableAssetsParticular1\",\n                    \"fieldValue\": \"75 Tolas of Gold in the name of Spallya Omar and Sai Veer(Applicants)\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountMovableAssetsParticular1\",\n                    \"fieldValue\": \"10000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountMovableAssetsParticular1\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountMovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountMovableAssetsParticular1\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                },\n                {\n                    \"fieldName\": \"movableAssetsParticular2\",\n                    \"fieldValue\": \"2 Kgs of Sliver in the name of Sai Veer (Applicants)\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountMovableAssetsParticular2\",\n                    \"fieldValue\": \"3000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountMovableAssetsParticular2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountMovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountMovableAssetsParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"sectionId\": \"dynamicMovableAssetsParticularsSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"immovableAssetsParticular1\",\n                    \"fieldValue\": \"Open Agricultural land with Sy.No. 620/a, 675a, 772/e/1, 804/AA/1, 934/1/1, 947/2, 1131/a, 1132/a, 1140a at Aravelly, Pegadapally, Jagtial District, Telangana State in the name of Spallya Omar (Applicant)\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountImmovableAssetsParticular1\",\n                    \"fieldValue\": \"12000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountImmovableAssetsParticular1\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountImmovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountImmovableAssetsParticular1\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                },\n                {\n                    \"fieldName\": \"immovableAssetsParticular2\",\n                    \"fieldValue\": \"Residential House at H.No. 7-4-86/2, Vidhya Nagar, Jagtial District, Telangana State in the name of Sai Veer (Applicant)\",\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountImmovableAssetsParticular2\",\n                    \"fieldValue\": \"5000\",\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountImmovableAssetsParticular2\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountImmovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountImmovableAssetsParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"sectionId\": \"dynamicImmovableAssetsParticularParticularsSection\",\n            \"status\": null\n        }\n    ],\n    \"dynamicSections\": [\n        {\n            \"sectionId\": \"applicantDetailsDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ApplicantName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Applicant name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": false,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"content\": \"{{ApplicantName}} (Applicant)\",\n            \"contentJoiner\": \"SINGLE_LINE\",\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfApplicants\",\n                \"fieldValue\": \"2\",\n                \"question\": \"Please Enter number of applicants for which you want to enter details\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        },\n        {\n            \"sectionId\": \"applicantNamesDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ApplicantName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Applicant name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                }\n            ],\n            \"content\": \"{{ApplicantName}}\",\n            \"contentJoiner\": \"SINGLE_LINE\",\n            \"repeatUsingLinkedDynamicSection\": \"applicantDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"effectiveLinkedDynamicSectionIds\": \"applicantDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"dynamicSavingsFromIndiaParticularsSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"savingsFromIndiaParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountSavingsFromIndiaParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountSavingsFromIndiaParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountSavingsFromIndiaParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountSavingsFromIndiaParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"content\": \"{{savingsFromIndiaParticular}} Amount in {{originCountryCurrency}} is {{originCurrencyAmountSavingsFromIndiaParticular}} and Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountSavingsFromIndiaParticular}}\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfParticularsSavingsFromIndia\",\n                \"fieldValue\": \"2\",\n                \"question\": \"Please Enter number of particulars you want to provide for Savings from India section\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        },\n        {\n            \"sectionId\": \"dynamicMovableAssetsParticularsSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"movableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountMovableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountMovableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountMovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountMovableAssetsParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"content\": \"{{movableAssetsParticular}} Amount in {{originCountryCurrency}} is {{originCurrencyAmountMovableAssetsParticular}} and Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountMovableAssetsParticular}}\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfParticularsMovableAssets\",\n                \"fieldValue\": \"2\",\n                \"question\": \"Please Enter number of particulars you want to provide for Movable Assets section\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        },\n        {\n            \"sectionId\": \"dynamicImmovableAssetsParticularParticularsSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"immovableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the particular details\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"originCurrencyAmountImmovableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Please enter the amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": null\n                },\n                {\n                    \"fieldName\": \"foreignCurrencyAmountImmovableAssetsParticular\",\n                    \"fieldValue\": null,\n                    \"question\": \"Amount in Origin country currency\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null,\n                    \"hideInUi\": true,\n                    \"options\": null,\n                    \"autoFillValue\": {\n                        \"autoFillFromMetadata\": false,\n                        \"fieldName\": null,\n                        \"needToFetchTotalOfFields\": false,\n                        \"fieldNames\": null,\n                        \"indexedFieldNames\": null,\n                        \"conversionRequired\": true,\n                        \"indexCopyValueFrom\": true,\n                        \"copyValueFrom\": \"originCurrencyAmountImmovableAssetsParticular\",\n                        \"copyValueFromIndexed\": \"originCurrencyAmountImmovableAssetsParticular2\",\n                        \"dynamicConversionRateFromMetaDataField\": \"VisitcountrycurrencyRate\"\n                    }\n                }\n            ],\n            \"content\": \"{{immovableAssetsParticular}} Amount in {{originCountryCurrency}} is {{originCurrencyAmountImmovableAssetsParticular}} and Amount in {{Visitcountrycurrency}} is {{foreignCurrencyAmountImmovableAssetsParticular}}\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfParticularsImmovableAssetsParticular\",\n                \"fieldValue\": \"2\",\n                \"question\": \"Please Enter number of particulars you want to provide for Immovable Assets section\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null,\n                \"hideInUi\": false,\n                \"options\": null,\n                \"autoFillValue\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"spacingBetweenElements\": 0,\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/variables",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variable Document - Partnership Deed",
+			"item": [
+				{
+					"name": "Create Sample Variable Document Process",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the processInstanceId in an environment or global variable",
+									"var processInstanceId = pm.response.json().processInstanceId;",
+									"pm.environment.set(\"processInstanceId\", processInstanceId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"variableDocGenerator\",\n    \"metaData\": {\n        \"templateName\": \"partnership-deed\",\n        \"approvalProcessId\": \"Level2ApprovalProcess\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Process Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/{{processInstanceId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"{{processInstanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Variable Document",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/export/pdf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"export",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Varaibe Document in DOCX Format",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/download/docx",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"download",
+								"docx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Variable Document Variables Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sections\": [\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"DateMonthYear\",\n                    \"fieldValue\": \"11th September, 2023\",\n                    \"question\": \"What is the Date on which the Rental Agreement will be entered into?\",\n                    \"type\": \"date\",\n                    \"placeHolder\": \"\",\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"Place\",\n                    \"fieldValue\": \"Hyderabad\",\n                    \"question\": \"What is the name of the city or town where the Rental agreement will be entered into?\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Hyderabad, Mumbai\",\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"PartnershipFirmName\",\n                    \"fieldValue\": \"Vider Business Solutions\",\n                    \"question\": \"What is the name of the patnership firm ?\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": \"Eg: Sai Veer\",\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"PartnershipFirmAddress\",\n                    \"fieldValue\": \"GVR's Pride, 2nd Floor, KPHB 5th Phase, Kukatpally, Hyderabad, Telangana - 500072 IN\",\n                    \"question\": \"What is the Address of the patnership firm ?\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": \"Eg: 123, Kukatpally, Hyderabad, 500089\",\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"CommencementDate\",\n                    \"fieldValue\": \"12th September, 2023\",\n                    \"question\": \"What is the Start Date for the Rental agreement\",\n                    \"type\": \"date\",\n                    \"placeHolder\": \"\",\n                    \"id\": null\n                }\n            ],\n            \"sectionId\": \"partnerShipDeedDetails\",\n            \"status\": \"\"\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ManagingPartnerName1\",\n                    \"fieldValue\": \"Mr. Spallya Omar\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerFatherName1\",\n                    \"fieldValue\": \"Mr. XYZ\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAge1\",\n                    \"fieldValue\": \"30\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAddress1\",\n                    \"fieldValue\": \"Vittal Rao Nagar, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerName2\",\n                    \"fieldValue\": \"Mr. Sai Veer\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerFatherName2\",\n                    \"fieldValue\": \"Mr. ABC\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAge2\",\n                    \"fieldValue\": \"34\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAddress2\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerName3\",\n                    \"fieldValue\": \"Mr. Vikram Pappula\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerFatherName3\",\n                    \"fieldValue\": \"Mr. BJK\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAge3\",\n                    \"fieldValue\": \"35\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAddress3\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"sectionId\": \"managingPartnersDetailsDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"OtherPartnerName1\",\n                    \"fieldValue\": \"Mr. Abhishek Srigari\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerFatherName1\",\n                    \"fieldValue\": \"Mr.ASD\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAge1\",\n                    \"fieldValue\": \"35\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAddress1\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerName2\",\n                    \"fieldValue\": \"Mr. Abhi\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerFatherName2\",\n                    \"fieldValue\": \"Mr. WER\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAge2\",\n                    \"fieldValue\": \"30\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAddress2\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerName3\",\n                    \"fieldValue\": \"Ms. Akshitha\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerFatherName3\",\n                    \"fieldValue\": \"Mr. KOL\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAge3\",\n                    \"fieldValue\": \"25\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAddress3\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerName4\",\n                    \"fieldValue\": \"Mr. Shashank\",\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerFatherName4\",\n                    \"fieldValue\": \"Mr. RYU\",\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAge4\",\n                    \"fieldValue\": \"30\",\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAddress4\",\n                    \"fieldValue\": \"Kukatpally, Hyderabad\",\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"sectionId\": \"otherPartnersDetailsDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": null,\n            \"sectionId\": \"managingPartnersNamesDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": null,\n            \"sectionId\": \"managingPartnersSharesDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": null,\n            \"sectionId\": \"otherPartnersSharesDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": null,\n            \"sectionId\": \"signatoryManagingPartnerDynamicSection\",\n            \"status\": null\n        },\n        {\n            \"metadataFields\": null,\n            \"sectionId\": \"signatoryOtherPartnerDynamicSection\",\n            \"status\": null\n        }\n    ],\n    \"dynamicSections\": [\n        {\n            \"sectionId\": \"managingPartnersDetailsDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ManagingPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerFatherName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAge\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"ManagingPartnerAddress\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"{{ManagingPartnerName}} S/o {{ManagingPartnerFatherName}}, aged about {{ManagingPartnerAge}} years, R/o {{ManagingPartnerAddress}} (Hereinafter called the CurrentIndexInWords partner) of the CurrentIndexInWords part\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfManagingPartners\",\n                \"fieldValue\": \"3\",\n                \"question\": \"Enter number of managing partners for which you want to enter details\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"\"\n        },\n        {\n            \"sectionId\": \"otherPartnersDetailsDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"OtherPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerFatherName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner's father name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAge\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter managing partner age\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                },\n                {\n                    \"fieldName\": \"OtherPartnerAddress\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter managing partner address\",\n                    \"type\": \"text_area\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"{{OtherPartnerName}} S/o {{OtherPartnerFatherName}}, aged about {{OtherPartnerAge}} years, R/o {{OtherPartnerAddress}} (Hereinafter called the CurrentIndexInWords partner) of the CurrentIndexInWords part\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": null,\n            \"startIndexAfterLinkedDynamicSSection\": \"managingPartnersDetailsDynamicSection\",\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": {\n                \"fieldName\": \"numberOfOtherPartners\",\n                \"fieldValue\": \"4\",\n                \"question\": \"Enter number of managing partners for which you want to enter details\",\n                \"type\": \"text_box\",\n                \"placeHolder\": null,\n                \"id\": null\n            },\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"managingPartnersDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"managingPartnersNamesDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ManagingPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"{{ManagingPartnerName}}\",\n            \"contentJoiner\": \"SINGLE_LINE\",\n            \"repeatUsingLinkedDynamicSection\": \"managingPartnersDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"managingPartnersDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"managingPartnersSharesDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ManagingPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"{{ManagingPartnerName}} CurrentIndexPercentage % (Shares / Profit & Loss)\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": \"managingPartnersDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": \"managingPartnersDetailsDynamicSection,otherPartnersDetailsDynamicSection\",\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"otherPartnersDetailsDynamicSection,managingPartnersDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"otherPartnersSharesDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"OtherPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Other partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"{{OtherPartnerName}} CurrentIndexPercentage % (Shares / Profit & Loss)\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": \"otherPartnersDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": \"managingPartnersDetailsDynamicSection\",\n            \"totalElementsUsingLinkedDynamicSection\": \"managingPartnersDetailsDynamicSection,otherPartnersDetailsDynamicSection\",\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"otherPartnersDetailsDynamicSection,managingPartnersDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"signatoryManagingPartnerDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"ManagingPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Managing partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"Party of CurrentIndexInWords part ({{ManagingPartnerName}})\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": \"managingPartnersDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": null,\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"managingPartnersDetailsDynamicSection\"\n        },\n        {\n            \"sectionId\": \"signatoryOtherPartnerDynamicSection\",\n            \"metadataFields\": [\n                {\n                    \"fieldName\": \"OtherPartnerName\",\n                    \"fieldValue\": null,\n                    \"question\": \"Enter Other partner name\",\n                    \"type\": \"text_box\",\n                    \"placeHolder\": null,\n                    \"id\": null\n                }\n            ],\n            \"content\": \"Party of CurrentIndexInWords part ({{OtherPartnerName}})\",\n            \"contentJoiner\": null,\n            \"repeatUsingLinkedDynamicSection\": \"otherPartnersDetailsDynamicSection\",\n            \"startIndexAfterLinkedDynamicSSection\": \"managingPartnersDetailsDynamicSection\",\n            \"totalElementsUsingLinkedDynamicSection\": null,\n            \"repeatOn\": null,\n            \"noNeedToUpdateGoogleDoc\": false,\n            \"effectiveLinkedDynamicSectionIds\": \"otherPartnersDetailsDynamicSection,managingPartnersDetailsDynamicSection\"\n        }\n    ],\n    \"header\": \"\",\n    \"footer\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/variable/doc/{{processInstanceId}}/variables",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"variable",
+								"doc",
+								"{{processInstanceId}}",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Sample DB Static Query Execution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"sampleStaticDbSelectQuery\",\n    \"metaData\": {\n        \"assignedUserIds\": [\"spallya\", \"109\", \"110\", \"111\"]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sample Process",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"genericApprovalProcess\",\n    \"owner\": \"somar1\",\n    \"metaData\": {\n        \"approvalProcessId\": \"Level2ApprovalProcess\",\n        \"assignedUserIds\": [\n            \"spallya\",\n            \"109\",\n            \"110\",\n            \"111\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Process Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/16a7d814-417d-11ee-b37f-369138561a17",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"16a7d814-417d-11ee-b37f-369138561a17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Process Variables",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/d9f6d26a-3081-11ee-b352-86379344937f",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"d9f6d26a-3081-11ee-b352-86379344937f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Delete Process Variables",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/d9f6d26a-3081-11ee-b352-86379344937f/variables",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"d9f6d26a-3081-11ee-b352-86379344937f",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sample Rest POST Call",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"sampleRestPostCall\",\n    \"metaData\": {\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sample Rest GET Call",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"sampleRestCall\",\n    \"metaData\": {\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sample Rest Calls on Loop",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"sampleLoop\",\n    \"metaData\": {\n        \"httpMethod\": \"GET\",\n        \"httpUrl\": \"https://reqres.in/api/users/{userId}\",\n        \"loopThrough\": [\n            {\n                \"index\": 0,\n                \"httpPathVariables\": {\n                    \"userId\": 2\n                }\n            },\n            {\n                \"index\": 1,\n                \"httpPathVariables\": {\n                    \"userId\": 1\n                }\n            }\n        ],\n        \"httpHeaders\": {\n            \"Content-Type\": \"application/json\"\n        },\n        \"httpQueryParams\": \"\",\n        \"httpRequestBody\": \"\",\n        \"key2\": [\n            \"e1\",\n            \"e2\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft delete a process",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/eb61cdd3-7723-11ee-a7b3-0242ac110002",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"eb61cdd3-7723-11ee-a7b3-0242ac110002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Approval Management",
+			"item": [
+				{
+					"name": "Create a process with approval",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Stores the processInstanceId in an environment or global variable",
+									"var processInstanceId = pm.response.json().processInstanceId;",
+									"pm.environment.set(\"processInstanceId\", processInstanceId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processKey\": \"genericApprovalProcess\",\n    \"owner\": \"spallya\",\n    \"taskOwners\": [\"spallya\", \"abhishek\"],\n    \"metaData\": {\n        \"approvalProcessId\": \"Level2ApprovalProcess\",\n        \"typeOfApproval\": \"ATOM_TASK\",\n        \"variable1\": {\n            \"key\": \"someKey\",\n            \"values\": [\n                \"value1\",\n                \"value2\"\n            ]\n        },\n        \"variable2\": \"someRandomValue\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get process details with approval tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/process/{{processInstanceId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"process",
+								"{{processInstanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign approval task to a user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/5ebbe3ef-57ab-11ee-9500-e226541d22fd/assign/somar1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"5ebbe3ef-57ab-11ee-9500-e226541d22fd",
+								"assign",
+								"somar1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task Owners",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskOwners\": [\"123829\",\"123828\",\"123827\",\"123826\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/{{processInstanceId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"{{processInstanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Task",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskId\": \"f2da4266-54e8-11ee-9cbb-e226541d22fd\",\n    \"status\": \"APPROVED\",\n    \"comments\": \"I am approving this task\",\n    \"userId\": \"somar1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Approve Tasks",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskIds\": [\"f2da4266-54e8-11ee-9cbb-e226541d22fd\"],\n    \"status\": \"APPROVED\",\n    \"comments\": \"I am approving this task\",\n    \"userId\": \"somar1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decline Task",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskId\": \"5ebbe3ef-57ab-11ee-9500-e226541d22fd\",\n    \"status\": \"DECLINED\",\n    \"comments\": \"I am rejecting this task again\",\n    \"userId\": \"somar1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Decline Tasks",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskIds\": [\"5ebbe3ef-57ab-11ee-9500-e226541d22fd\"],\n    \"status\": \"DECLINED\",\n    \"comments\": \"I am rejecting this task again\",\n    \"userId\": \"somar1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/task/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"task",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all apporval tasks assigned to an user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/somar/assignee",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"somar",
+								"assignee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all apporval tasks owned by an user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/somar/owner",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"somar",
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all apporval tasks owned/assigned for user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/somar1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"somar1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks APPROVED by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/status/APPROVED/somar1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"status",
+								"APPROVED",
+								"somar1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks DECLINED by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/tasks/status/DECLINED/somar",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"tasks",
+								"status",
+								"DECLINED",
+								"somar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calendar",
+			"item": [
+				{
+					"name": "Start calendar sync for user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ACCESS-TOKEN",
+								"value": "ya29.a0AfB_byDhq3EaOM62AxrRVEDBgd1b01vcweMyz-WYOotb2jEqTjfY0nS6DKK3_ka8v5oyFLszSkwGPZf7UNL2cHXgEzFBppr_Tb1PIccj3vMDb1pCgRBsQeSpyq0EXQGYXENGtSKNZCD8ekwuOEac4Ronirbz_M_i6qUacMoaCgYKAYwSARISFQHsvYls_x3X-PO2iv3f_DHedK1COA0174",
+								"type": "default"
+							},
+							{
+								"key": "X-USER-ID",
+								"value": "spallya",
+								"type": "default"
+							},
+							{
+								"key": "X-DB-USER-ID",
+								"value": "172",
+								"type": "default"
+							},
+							{
+								"key": "X-DB-ORG-ID",
+								"value": "58",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/calendar/events?pageSize=20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"calendar",
+								"events"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check calendar sync status for user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/calendar/sync/status/spallya",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"calendar",
+								"sync",
+								"status",
+								"spallya"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Automation",
+			"item": [
+				{
+					"name": "Submit Request for Automation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"modules\": [\n            \"P\",\n            \"F\",\n            \"R\",\n            \"OD\"\n        ],\n        \"autoCredentialsId\": 3,\n        \"type\": \"INCOMETAX\"\n        // \"gstrCredentialsId\": 1\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Sync Request for Automation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"modules\": [\n        \"P\",\n        \"F\",\n        \"R\",\n        \"OD\"\n    ],\n    \"orgId\": 753,\n    \"type\": \"INCOMETAX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bulk Sync Request for Automation by org id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync/753",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync",
+								"753"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Bulk Sync Request Data",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync/753",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync",
+								"753"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enable Bulk Sync Automation Request for Org",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync/428/enable/incometax",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync",
+								"428",
+								"enable",
+								"incometax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Bulk Sync Automation Request for Org",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync/491/disable/gstr",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync",
+								"491",
+								"disable",
+								"gstr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bulk Sync Automation Record for Org",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/bulk/sync/491/gstr",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"bulk",
+								"sync",
+								"491",
+								"gstr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get request status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/status/nOiEuZu23q0M00PGpI6u",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"status",
+								"nOiEuZu23q0M00PGpI6u"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all requests of client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "spallya",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/vider/quantum/api/automation/nOiEuZu23q0M00PGpI6u",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vider",
+								"quantum",
+								"api",
+								"automation",
+								"nOiEuZu23q0M00PGpI6u"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "processInstanceId",
+			"value": "1553f29d-47e5-11ee-8e62-369138561a17"
+		}
+	]
+}

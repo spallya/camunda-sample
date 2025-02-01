@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_04lt8bm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="sampleDataCollectionForm" name="sampleDataCollectionForm" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0fvvchu</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_12x0yo9">
+      <bpmn:incoming>Flow_1sc486n</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0fvvchu" sourceRef="StartEvent_1" targetRef="Activity_0svxckv" />
+    <bpmn:sequenceFlow id="Flow_1sc486n" sourceRef="Activity_0svxckv" targetRef="Event_12x0yo9" />
+    <bpmn:userTask id="Activity_0svxckv" name="Sample Data Collection Form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="firstName" label="First Name" type="string" defaultValue="Please Enter your First Name">
+            <camunda:properties />
+            <camunda:validation />
+          </camunda:formField>
+          <camunda:formField id="lastName" label="Last Name" type="string" defaultValue="Please Enter your Last Name" />
+          <camunda:formField id="company" label="Company" type="enum">
+            <camunda:value id="vider" name="Vider" />
+            <camunda:value id="wellsFargo" name="Wells Fargo" />
+            <camunda:value id="cognizant" name="Cognizant Solutions" />
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0fvvchu</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sc486n</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sampleDataCollectionForm">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_12x0yo9_di" bpmnElement="Event_12x0yo9">
+        <dc:Bounds x="552" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10fa1e3_di" bpmnElement="Activity_0svxckv">
+        <dc:Bounds x="320" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0fvvchu_di" bpmnElement="Flow_0fvvchu">
+        <di:waypoint x="228" y="120" />
+        <di:waypoint x="320" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sc486n_di" bpmnElement="Flow_1sc486n">
+        <di:waypoint x="420" y="120" />
+        <di:waypoint x="552" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

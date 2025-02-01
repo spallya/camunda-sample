@@ -1,0 +1,235 @@
+{
+  "documentId": "1Qq_5vbb85bJiK2pYjBticQaJIE4l3jP5xHILUvUjIxk",
+  "sections": [
+    {
+      "sectionId": "ndaStaticFieldsSection",
+      "metadataFields": [
+        {
+          "fieldName": "Date",
+          "question": "What is the Date on which this agreement is getting entered into?",
+          "fieldValue": null,
+          "type": "date"
+        },
+        {
+          "fieldName": "SoftwareCompanyName",
+          "question": "What is the name of the software company?",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "SoftwareCompanyAddress",
+          "question": "What is the address of the software company?",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "duration",
+          "question": "What is the duration of the agreement?",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "Specifynoticeperiod",
+          "question": "What is the notice period of the agreement?",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "SoftwareCompanyRepresentative",
+          "question": "What is the software company's representative name?",
+          "fieldValue": null,
+          "type": "text_box"
+        }
+      ]
+    }
+  ],
+  "mutuallyExclusiveSections": {
+    "selector": {
+      "fieldName": "entitySelector",
+      "question": "Please select which entity is entering the agreement",
+      "fieldValue": "",
+      "type": "dropdown"
+    },
+    "elements": [
+      {
+        "sectionId": "companyMutuallyExclusiveSection",
+        "content": "{{YourCompanyName}}, a company incorporated under the laws of India, having its registered office at {{YourCompanyAddress}} (hereinafter referred to as the \"Service Provider\").",
+        "activeOnSelectorValue": "Company",
+        "metadataFields": [
+          {
+            "fieldName": "YourCompanyName",
+            "question": "Please enter the name of your company",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "YourCompanyAddress",
+            "question": "Please enter the address of your company",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "individualMutuallyExclusiveSection",
+        "content": "{{Individual}}, S/o  {{FatherName}} having its  office at {{YourAddress}} (hereinafter referred to as the \"Service Provider '').",
+        "activeOnSelectorValue": "Individual",
+        "metadataFields": [
+          {
+            "fieldName": "Individual",
+            "question": "Please enter name of the individual",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "FatherName",
+            "question": "Please enter individual's father name",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "YourAddress",
+            "question": "Please enter individual's address",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "firmMutuallyExclusiveSection",
+        "content": "{{YourfirmName}}, a firm registered under the laws of India, having its registered office at {{YourfirmAddress}} (hereinafter referred to as the \"Service Provider\").",
+        "activeOnSelectorValue": "Firm",
+        "metadataFields": [
+          {
+            "fieldName": "YourfirmName",
+            "question": "Please enter the name of your firm",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "YourfirmAddress",
+            "question": "Please enter the address of your firm",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "trustMutuallyExclusiveSection",
+        "content": "{{trustname}}, a trust  registered under the laws of India, having its registered office at {{YourtrustAddress}} (hereinafter referred to as the \"Service Provider\").",
+        "activeOnSelectorValue": "Trust",
+        "metadataFields": [
+          {
+            "fieldName": "trustname",
+            "question": "Please enter the name of your trust",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "YourtrustAddress",
+            "question": "Please enter the address of your trust",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "societyMutuallyExclusiveSection",
+        "content": "{{societyname}}, a society  registered under the laws of India, having its registered office at {{YoursocietyAddress}} (hereinafter referred to as the \"Service Provider\").",
+        "activeOnSelectorValue": "Society",
+        "metadataFields": [
+          {
+            "fieldName": "societyname",
+            "question": "Please enter the name of your society",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "YoursocietyAddress",
+            "question": "Please enter the address of your society",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      },
+      {
+        "sectionId": "companySignatoryMutuallyExclusiveSection",
+        "content": "{{YourCompanyName}} {{signatoryAuthorityName}} {{director}} {{Date}}",
+        "activeOnSelectorValue": "Company",
+        "metadataFields": [
+          {
+            "fieldName": "YourCompanyName",
+            "question": "Please enter the name of your company",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "signatoryAuthorityName",
+            "question": "Please enter the signatory Authority Name of your company",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          },
+          {
+            "fieldName": "director",
+            "question": "Please enter the director Name of your company",
+            "fieldValue": null,
+            "hideInUi": true,
+            "type": "text_box"
+          }
+        ]
+      }
+    ]
+  },
+  "initialSequence": [
+    {
+      "fieldName": "Date",
+      "sequence": 1
+    },
+    {
+      "fieldName": "entitySelector",
+      "mutuallyExclusiveSelectorField": true,
+      "sequence": 2
+    },
+    {
+      "fieldName": "YourCompanyName",
+      "sequence": 3
+    },
+    {
+      "fieldName": "YourCompanyAddress",
+      "sequence": 4
+    },
+    {
+      "fieldName": "Individual",
+      "sequence": 5
+    },
+    {
+      "fieldName": "FatherName",
+      "sequence": 6
+    },
+    {
+      "fieldName": "YourAddress",
+      "sequence": 7
+    },
+    {
+      "fieldName": "LastName3",
+      "sequence": 7
+    },
+    {
+      "fieldName": "MyStaticField",
+      "sequence": 8
+    }
+  ]
+}

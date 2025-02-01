@@ -1,0 +1,294 @@
+{
+  "documentId": "1kBCDreGlT4U3dlpmECV75PsCowscN8DV84tGU8q_s4U",
+  "header": "",
+  "footer": "",
+  "sections": [
+    {
+      "metadataFields": [
+        {
+          "fieldName": "DateMonthYear",
+          "question": "What is the Date on which the Rental Agreement will be entered into?",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "date"
+        },
+        {
+          "fieldName": "Place",
+          "question": "What is the name of the city or town where the Rental agreement will be entered into?",
+          "fieldValue": null,
+          "placeHolder": "Eg: Hyderabad, Mumbai",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "PartnershipFirmName",
+          "question": "What is the name of the patnership firm ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: Sai Veer",
+          "type": "text_box"
+        },
+        {
+          "fieldName": "PartnershipFirmAddress",
+          "question": "What is the Address of the patnership firm ?",
+          "fieldValue": null,
+          "placeHolder": "Eg: 123, Kukatpally, Hyderabad, 500089",
+          "type": "text_area"
+        },
+        {
+          "fieldName": "CommencementDate",
+          "question": "What is the Start Date for the Rental agreement",
+          "fieldValue": null,
+          "placeHolder": "",
+          "type": "date"
+        },
+        {
+          "fieldName": "PartnerNames",
+          "question": "Please select a partner",
+          "fieldValue": null,
+          "type": "dropdown",
+          "autoFillValue": {
+            "populateOptionsUsingIndexedFields": true,
+            "indexedFieldNames": "ManagingPartnerName,OtherPartnerName"
+          }
+        }
+      ],
+      "sectionId": "partnerShipDeedDetails",
+      "status": ""
+    }
+  ],
+  "dynamicSections": [
+    {
+      "sectionId": "managingPartnersDetailsDynamicSection",
+      "content": "{{ManagingPartnerName}} S/o {{ManagingPartnerFatherName}}, aged about {{ManagingPartnerAge}} years, R/o {{ManagingPartnerAddress}} (Hereinafter called the CurrentIndexInWords partner) of the CurrentIndexInWords part",
+      "repeatOn": {
+        "fieldName": "numberOfManagingPartners",
+        "question": "Enter number of managing partners for which you want to enter details",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "metadataFields": [
+        {
+          "fieldName": "ManagingPartnerName",
+          "question": "Enter Managing partner name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "ManagingPartnerFatherName",
+          "question": "Enter Managing partner father name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "ManagingPartnerAge",
+          "question": "Enter managing partner age",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "ManagingPartnerAddress",
+          "question": "Enter managing partner address",
+          "fieldValue": null,
+          "type": "text_area"
+        }
+      ]
+    },
+    {
+      "sectionId": "otherPartnersDetailsDynamicSection",
+      "content": "{{OtherPartnerName}} S/o {{OtherPartnerFatherName}}, aged about {{OtherPartnerAge}} years, R/o {{OtherPartnerAddress}} (Hereinafter called the CurrentIndexInWords partner) of the CurrentIndexInWords part",
+      "startIndexAfterLinkedDynamicSSection": "managingPartnersDetailsDynamicSection",
+      "repeatOn": {
+        "fieldName": "numberOfOtherPartners",
+        "question": "Enter number of managing partners for which you want to enter details",
+        "fieldValue": "2",
+        "type": "text_box"
+      },
+      "metadataFields": [
+        {
+          "fieldName": "OtherPartnerName",
+          "question": "Enter Managing partner name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "OtherPartnerFatherName",
+          "question": "Enter Managing partner father name",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "OtherPartnerAge",
+          "question": "Enter managing partner age",
+          "fieldValue": null,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "OtherPartnerAddress",
+          "question": "Enter managing partner address",
+          "fieldValue": null,
+          "type": "text_area"
+        }
+      ]
+    },
+    {
+      "sectionId": "managingPartnersNamesDynamicSection",
+      "content": "{{ManagingPartnerName}}",
+      "contentJoiner": "SINGLE_LINE",
+      "repeatUsingLinkedDynamicSection": "managingPartnersDetailsDynamicSection",
+      "metadataFields": [
+        {
+          "fieldName": "ManagingPartnerName",
+          "question": "Enter Managing partner name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        }
+      ]
+    },
+    {
+      "sectionId": "managingPartnersSharesDynamicSection",
+      "content": "{{ManagingPartnerName}} {{managingPartnerPercentage}} % (Shares / Profit & Loss)",
+      "repeatUsingLinkedDynamicSection": "managingPartnersDetailsDynamicSection",
+      "totalElementsUsingLinkedDynamicSection": "managingPartnersDetailsDynamicSection,otherPartnersDetailsDynamicSection",
+      "metadataFields": [
+        {
+          "fieldName": "ManagingPartnerName",
+          "question": "Enter Managing partner name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "managingPartnerPercentage",
+          "question": "Enter Share percentage for partner",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "autoFillFromMetadata": true,
+            "fieldName": "CurrentIndexPercentage"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "otherPartnersSharesDynamicSection",
+      "content": "{{OtherPartnerName}} {{otherPartnerPercentage}} % (Shares / Profit & Loss)",
+      "repeatUsingLinkedDynamicSection": "otherPartnersDetailsDynamicSection",
+      "startIndexAfterLinkedDynamicSSection": "managingPartnersDetailsDynamicSection",
+      "totalElementsUsingLinkedDynamicSection": "managingPartnersDetailsDynamicSection,otherPartnersDetailsDynamicSection",
+      "metadataFields": [
+        {
+          "fieldName": "OtherPartnerName",
+          "question": "Enter Other partner name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        },
+        {
+          "fieldName": "otherPartnerPercentage",
+          "question": "Enter Share percentage for partner",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box",
+          "autoFillValue": {
+            "autoFillFromMetadata": true,
+            "fieldName": "CurrentIndexPercentage"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "signatoryManagingPartnerDynamicSection",
+      "content": "Party of CurrentIndexInWords part ({{ManagingPartnerName}})",
+      "repeatUsingLinkedDynamicSection": "managingPartnersDetailsDynamicSection",
+      "spacingBetweenElements": 5,
+      "metadataFields": [
+        {
+          "fieldName": "ManagingPartnerName",
+          "question": "Enter Managing partner name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        }
+      ]
+    },
+    {
+      "sectionId": "signatoryOtherPartnerDynamicSection",
+      "content": "Party of CurrentIndexInWords part ({{OtherPartnerName}})",
+      "repeatUsingLinkedDynamicSection": "otherPartnersDetailsDynamicSection",
+      "startIndexAfterLinkedDynamicSSection": "managingPartnersDetailsDynamicSection",
+      "spacingBetweenElements": 5,
+      "metadataFields": [
+        {
+          "fieldName": "OtherPartnerName",
+          "question": "Enter Other partner name",
+          "fieldValue": null,
+          "hideInUi": true,
+          "type": "text_box"
+        }
+      ]
+    }
+  ],
+  "initialSequence": [
+    {
+      "fieldName": "DateMonthYear",
+      "sequence": 1
+    },
+    {
+      "fieldName": "Place",
+      "sequence": 2
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "managingPartnersDetailsDynamicSection",
+      "repeatOnFieldName": "numberOfManagingPartners",
+      "fields": [
+        "ManagingPartnerName",
+        "ManagingPartnerFatherName",
+        "ManagingPartnerAge",
+        "ManagingPartnerAddress"
+      ],
+      "sequence": 3
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "otherPartnersDetailsDynamicSection",
+      "repeatOnFieldName": "numberOfOtherPartners",
+      "fields": [
+        "OtherPartnerName",
+        "OtherPartnerFatherName",
+        "OtherPartnerAge",
+        "OtherPartnerAddress"
+      ],
+      "sequence": 4
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "managingPartnersSharesDynamicSection",
+      "fields": [
+        "managingPartnerPercentage"
+      ],
+      "sequence": 5
+    },
+    {
+      "dynamicSectionFields": true,
+      "dynamicSectionId": "otherPartnersSharesDynamicSection",
+      "fields": [
+        "otherPartnerPercentage"
+      ],
+      "sequence": 6
+    },
+    {
+      "fieldName": "PartnershipFirmName",
+      "sequence": 7
+    },
+    {
+      "fieldName": "PartnershipFirmAddress",
+      "sequence": 8
+    },
+    {
+      "fieldName": "CommencementDate",
+      "sequence": 9
+    }
+  ]
+}

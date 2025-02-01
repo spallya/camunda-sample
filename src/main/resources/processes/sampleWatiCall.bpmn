@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01mbh9p" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="sampleWatiCall" name="sampleWatiCall" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_17otcmz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_127qmld" name="Do Sample Rest Call" camunda:delegateExpression="#{restApiDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="httpMethod">POST</camunda:inputParameter>
+          <camunda:inputParameter name="queryParams" />
+          <camunda:inputParameter name="pathVariables">
+            <camunda:map>
+              <camunda:entry key="sessionId">916302843241</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="headers">
+            <camunda:map>
+              <camunda:entry key="Content-Type">application/json</camunda:entry>
+              <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1MmVmYzRjOS0zOTI0LTQxYjctOWEwNi0wZTgzZjI1MTdkZTkiLCJ1bmlxdWVfbmFtZSI6ImhhcmlzaEB2aWRlci5pbiIsIm5hbWVpZCI6ImhhcmlzaEB2aWRlci5pbiIsImVtYWlsIjoiaGFyaXNoQHZpZGVyLmluIiwiYXV0aF90aW1lIjoiMDcvMTQvMjAyMyAwNDo1Mjo0NiIsImRiX25hbWUiOiIxMDU5NTAiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBVE9SIiwiZXhwIjoyNTM0MDIzMDA4MDAsImlzcyI6IkNsYXJlX0FJIiwiYXVkIjoiQ2xhcmVfQUkifQ.pUyb3Fd0AfxPOGh-_zGThlVHmZZn02S2eflwJC_o_6E</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="url">https://live-server-105950.wati.io/api/v1/sendSessionMessage/{sessionId}</camunda:inputParameter>
+          <camunda:inputParameter name="requestBody">
+            <camunda:map>
+              <camunda:entry key="messageText">Hi</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">restCallResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_17otcmz</bpmn:incoming>
+      <bpmn:outgoing>Flow_1uxcjgc</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_17otcmz" sourceRef="StartEvent_1" targetRef="Activity_127qmld" />
+    <bpmn:endEvent id="Event_086cp7v">
+      <bpmn:incoming>Flow_1uxcjgc</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1uxcjgc" sourceRef="Activity_127qmld" targetRef="Event_086cp7v" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sampleWatiCall">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0item7e" bpmnElement="Activity_127qmld">
+        <dc:Bounds x="310" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_086cp7v_di" bpmnElement="Event_086cp7v">
+        <dc:Bounds x="572" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_17otcmz_di" bpmnElement="Flow_17otcmz">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="310" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uxcjgc_di" bpmnElement="Flow_1uxcjgc">
+        <di:waypoint x="410" y="117" />
+        <di:waypoint x="572" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1qfhoet" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="sampleRestPostCall" name="sampleRestPostCall" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1z07z6f</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1gnvxjz">
+      <bpmn:incoming>Flow_1fgpvjf</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_127qmld" name="Do Sample Rest Call" camunda:delegateExpression="#{restApiDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="httpMethod">POST</camunda:inputParameter>
+          <camunda:inputParameter name="queryParams" />
+          <camunda:inputParameter name="pathVariables" />
+          <camunda:inputParameter name="headers">
+            <camunda:map>
+              <camunda:entry key="Content-Type">application/json</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="url">https://reqres.in/api/users</camunda:inputParameter>
+          <camunda:inputParameter name="requestBody">
+            <camunda:map>
+              <camunda:entry key="name">morpheus</camunda:entry>
+              <camunda:entry key="job">leader</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">restCallResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1z07z6f</bpmn:incoming>
+      <bpmn:outgoing>Flow_01um5bl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_0dfof0j" name="Hold">
+      <bpmn:incoming>Flow_03ts3ia</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fgpvjf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:task id="Activity_1k6gma0" name="Set some output variables">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="IdFromRestCallResult">${camundaVariableService.getValue(execution, 'restCallResult', 'id')}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_01um5bl</bpmn:incoming>
+      <bpmn:outgoing>Flow_03ts3ia</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1z07z6f" sourceRef="StartEvent_1" targetRef="Activity_127qmld" />
+    <bpmn:sequenceFlow id="Flow_1fgpvjf" sourceRef="Activity_0dfof0j" targetRef="Event_1gnvxjz" />
+    <bpmn:sequenceFlow id="Flow_01um5bl" sourceRef="Activity_127qmld" targetRef="Activity_1k6gma0" />
+    <bpmn:sequenceFlow id="Flow_03ts3ia" sourceRef="Activity_1k6gma0" targetRef="Activity_0dfof0j" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sampleRestPostCall">
+      <bpmndi:BPMNShape id="BPMNShape_0xq2baw" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1gnvxjz_di" bpmnElement="Event_1gnvxjz">
+        <dc:Bounds x="832" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0item7e" bpmnElement="Activity_127qmld">
+        <dc:Bounds x="310" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rte797_di" bpmnElement="Activity_0dfof0j">
+        <dc:Bounds x="650" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1k6gma0_di" bpmnElement="Activity_1k6gma0">
+        <dc:Bounds x="470" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1z07z6f_di" bpmnElement="Flow_1z07z6f">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="310" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fgpvjf_di" bpmnElement="Flow_1fgpvjf">
+        <di:waypoint x="750" y="120" />
+        <di:waypoint x="832" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01um5bl_di" bpmnElement="Flow_01um5bl">
+        <di:waypoint x="410" y="120" />
+        <di:waypoint x="470" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03ts3ia_di" bpmnElement="Flow_03ts3ia">
+        <di:waypoint x="570" y="120" />
+        <di:waypoint x="650" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

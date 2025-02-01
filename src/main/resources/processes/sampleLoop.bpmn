@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0b2kr2d" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="sampleLoop" name="sampleLoop" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1g3iqnf</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_086bjyz" name="Loop Helper" camunda:delegateExpression="#{loopHelperDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="loopThrough">${loopThrough}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1g3iqnf</bpmn:incoming>
+      <bpmn:incoming>Flow_0tea8uk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dsc2b2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_127qmld" name="Do Sample Rest Call" camunda:delegateExpression="#{restApiDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="httpMethod">${httpMethod}</camunda:inputParameter>
+          <camunda:inputParameter name="queryParams">${httpQueryParams}</camunda:inputParameter>
+          <camunda:inputParameter name="pathVariables">${httpPathVariables}</camunda:inputParameter>
+          <camunda:inputParameter name="headers">${httpHeaders}</camunda:inputParameter>
+          <camunda:inputParameter name="url">${httpUrl}</camunda:inputParameter>
+          <camunda:inputParameter name="requestBody">${httpRequestBody}</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">restCallResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_16hfwak</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hqr01f</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1g3iqnf" sourceRef="StartEvent_1" targetRef="Activity_086bjyz" />
+    <bpmn:endEvent id="Event_17w07sl">
+      <bpmn:incoming>Flow_1gn5dn3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_19ncnby" name="End Loop?">
+      <bpmn:incoming>Flow_0dsc2b2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gn5dn3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_16hfwak</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1gn5dn3" name="Yes" sourceRef="Gateway_19ncnby" targetRef="Event_17w07sl">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${endLoop == 'Y'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_16hfwak" name="No" sourceRef="Gateway_19ncnby" targetRef="Activity_127qmld">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${endLoop == 'N'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0dsc2b2" sourceRef="Activity_086bjyz" targetRef="Gateway_19ncnby" />
+    <bpmn:sequenceFlow id="Flow_1hqr01f" sourceRef="Activity_127qmld" targetRef="Activity_02a8eed" />
+    <bpmn:task id="Activity_02a8eed" name="Set Variables">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="queryId">${camundaVariableService.getValue(execution, 'restCallResultCurrent', 'data.id')}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1hqr01f</bpmn:incoming>
+      <bpmn:outgoing>Flow_195dy94</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_195dy94" sourceRef="Activity_02a8eed" targetRef="Activity_1dfcghj" />
+    <bpmn:sequenceFlow id="Flow_0on7bko" sourceRef="Activity_1dfcghj" targetRef="Activity_1rqzt1c" />
+    <bpmn:sequenceFlow id="Flow_0tea8uk" sourceRef="Activity_1rqzt1c" targetRef="Activity_086bjyz" />
+    <bpmn:serviceTask id="Activity_1dfcghj" name="Query DB with Dynamic Variables" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">select c.admin_category_id, c.color, c.default_one, c.from_admin, c.id, c.image, c.name, c.organization_id, c.parent_category_id, c.`version` from vider.category c where c.default_one = ${queryId} limit 10;</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">dbDynamicVariableResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_195dy94</bpmn:incoming>
+      <bpmn:outgoing>Flow_0on7bko</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1rqzt1c" name="Query DB with Static Query" camunda:delegateExpression="#{databaseQueryExecutorDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="query">select c.admin_category_id, c.color, c.default_one, c.from_admin, c.id, c.image, c.name, c.organization_id, c.parent_category_id, c.`version` from vider.category c where c.default_one = 1 limit 10;</camunda:inputParameter>
+          <camunda:inputParameter name="resultVariable">dbStaticQueryResult</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0on7bko</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tea8uk</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sampleLoop">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v08275_di" bpmnElement="Activity_086bjyz">
+        <dc:Bounds x="280" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0item7e" bpmnElement="Activity_127qmld">
+        <dc:Bounds x="800" y="40" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_17w07sl_di" bpmnElement="Event_17w07sl">
+        <dc:Bounds x="962" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_19ncnby_di" bpmnElement="Gateway_19ncnby" isMarkerVisible="true">
+        <dc:Bounds x="825" y="195" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="824" y="252" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02a8eed_di" bpmnElement="Activity_02a8eed">
+        <dc:Bounds x="640" y="40" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0es97k5_di" bpmnElement="Activity_1dfcghj">
+        <dc:Bounds x="460" y="40" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0u0cfmo_di" bpmnElement="Activity_1rqzt1c">
+        <dc:Bounds x="290" y="40" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1g3iqnf_di" bpmnElement="Flow_1g3iqnf">
+        <di:waypoint x="215" y="220" />
+        <di:waypoint x="280" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dsc2b2_di" bpmnElement="Flow_0dsc2b2">
+        <di:waypoint x="380" y="220" />
+        <di:waypoint x="825" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_195dy94_di" bpmnElement="Flow_195dy94">
+        <di:waypoint x="640" y="80" />
+        <di:waypoint x="560" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16hfwak_di" bpmnElement="Flow_16hfwak">
+        <di:waypoint x="850" y="195" />
+        <di:waypoint x="850" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="854" y="152" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hqr01f_di" bpmnElement="Flow_1hqr01f">
+        <di:waypoint x="800" y="80" />
+        <di:waypoint x="740" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gn5dn3_di" bpmnElement="Flow_1gn5dn3">
+        <di:waypoint x="875" y="220" />
+        <di:waypoint x="962" y="220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="910" y="202" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0on7bko_di" bpmnElement="Flow_0on7bko">
+        <di:waypoint x="460" y="80" />
+        <di:waypoint x="390" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tea8uk_di" bpmnElement="Flow_0tea8uk">
+        <di:waypoint x="330" y="120" />
+        <di:waypoint x="330" y="180" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
